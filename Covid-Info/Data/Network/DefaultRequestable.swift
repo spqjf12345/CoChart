@@ -15,11 +15,6 @@ final class DefaultRequestable: Requestable {
     private let decoder: JSONDecoder = JSONDecoder()
     
     func request(_ req: NetworkRequest) -> AnyPublisher<Data, NetworkError> {
-        
-        guard let url = req.baseURL else {
-            return AnyPublisher(Fail<Data, NetworkError>(error: NetworkError.badURL("Invalid URL")))
-        }
-        
         guard let urlRequest = req.urlRequest else {  return AnyPublisher(Fail<Data, NetworkError>(error: NetworkError.badURL("Invalid URL"))) }
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
             .tryMap { data, response -> Data in
@@ -56,7 +51,27 @@ final class DefaultRequestable: Requestable {
             .eraseToAnyPublisher()
     }
     
-    public var requestTimeout: Float = 30
+//    func requestXML<T>(_ req: NetworkRequest) -> AnyPublisher<T, NetworkError> where T : Decodable, T : Encodable {
+//
+//        request(req).sink { (completion) in
+//            switch completion {
+//            case .failure(let error):
+//                print("opps \(error)")
+//            case .finished:
+//                print("nothing much to do here")
+//            }
+//        } receiveValue : { response in
+//            guard let xmlString = String(data: data!, encoding: .utf8) else { return }
+//            let xmlParser = ParseXMLData(xml: xmlString)
+//            let jsonString = parser.parseXML()
+//
+//            let data: Data? = jsonString.data(using: .utf8)
+//            let json = (try? JSONSerialization.jsonObject(with: data!, options: [])) as? [String:AnyObject]
+//             print(json ?? "Empty Data")
+//            let d = try JSONDecoder().decode(CovidResponse.self, from: data!)
+//        }
+//
+//    }
     
     
     

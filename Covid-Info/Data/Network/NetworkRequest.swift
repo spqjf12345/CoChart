@@ -34,7 +34,6 @@ extension NetworkRequest {
         var component = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
         
         var parameter = [URLQueryItem]()
-        print("paramters 2: \(parameters)")
         
         if let parameters = self.parameters {
             for (name, value) in parameters {
@@ -92,6 +91,7 @@ public enum NetworkError: Error, Equatable {
     case noResponse(_ error: String)
     case unableToParseData(_ error: String)
     case unknown(code: Int, error: String)
+    case xmlParserError(_ error: String)
 }
 
 extension Encodable {

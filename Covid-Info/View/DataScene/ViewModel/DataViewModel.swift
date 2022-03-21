@@ -28,7 +28,7 @@ class DataViewModel {
                     print("nothing much to do here")
                 }
             } receiveValue : { response in
-                print(response)
+                print("res \(response)")
             }.store(in: &subscriptions)
     }
 }

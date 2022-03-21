@@ -17,8 +17,16 @@ class CovidRepository: CovidRepositoryProtocol {
     
     func getCovid(request: CovidRequest) -> AnyPublisher<CovidResponse, NetworkError> {
         let request = CovidAPI.getInfo(request)
-        print(request.baseURL)
-        let publisher: AnyPublisher<CovidResponse, NetworkError> = self.networkRequest.request(request)
-        return publisher
+        let publisher: AnyPublisher<Data, NetworkError> = self.networkRequest.request(request)
+        let response = publisher.map { data in
+                let xmlString = String(data: data, encoding: .utf8)!
+                let parser = ParseXMLData(xml: xmlString)
+            return parser.parseXML().data(using: .utf8)!
+            }
+        .decode(type: CovidResponse.self, decoder: JSONDecoder())
+        .mapError { error in
+            return NetworkError.invalidJSON(String(describing: error))
+        }.eraseToAnyPublisher()
+        return response
     }
 }
