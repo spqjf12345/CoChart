@@ -1,8 +1,13 @@
 PODS:
+  - Alamofire (5.5.0)
   - Charts (4.0.2):
     - Charts/Core (= 4.0.2)
   - Charts/Core (4.0.2):
     - SwiftAlgorithms (~> 1.0)
+  - Moya/Combine (15.0.0):
+    - Moya/Core
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
   - PromiseKit (6.17.0):
     - PromiseKit/CorePromise (= 6.17.0)
     - PromiseKit/Foundation (= 6.17.0)
@@ -17,22 +22,27 @@ PODS:
 
 DEPENDENCIES:
   - Charts
+  - Moya/Combine (~> 15.0)
   - PromiseKit (~> 6.8)
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Charts
+    - Moya
     - PromiseKit
     - SnapKit
     - SwiftAlgorithms
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PromiseKit: 996202d4cae72b7801b312abef4cd2f995b2978a
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: eac04cbe10cbb29b9998171e87125ae0c4760668
+PODFILE CHECKSUM: 2506cb60171312d607c671a744b5855d30f40183
 
 COCOAPODS: 1.11.2

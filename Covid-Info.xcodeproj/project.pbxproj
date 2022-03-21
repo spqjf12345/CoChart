@@ -14,6 +14,9 @@
 		8E65650627E8CAA600679DEA /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650527E8CAA600679DEA /* Requestable.swift */; };
 		8E65650827E8CB1100679DEA /* DefaultRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650727E8CB1100679DEA /* DefaultRequestable.swift */; };
 		8E65650A27E8CBCD00679DEA /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650927E8CBCD00679DEA /* NetworkRequest.swift */; };
+		8E65650D27E8CDB000679DEA /* CovidAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650C27E8CDB000679DEA /* CovidAPI.swift */; };
+		8E65651027E8CFC200679DEA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650F27E8CFC200679DEA /* Config.swift */; };
+		8E65651227E8D05400679DEA /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65651127E8D05400679DEA /* Encodable.swift */; };
 		8EC5011227E893E600CC9F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5011127E893E600CC9F94 /* AppDelegate.swift */; };
 		8EC5011427E893E600CC9F94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5011327E893E600CC9F94 /* SceneDelegate.swift */; };
 		8EC5011627E893E600CC9F94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5011527E893E600CC9F94 /* ViewController.swift */; };
@@ -64,6 +67,9 @@
 		8E65650527E8CAA600679DEA /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		8E65650727E8CB1100679DEA /* DefaultRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRequestable.swift; sourceTree = "<group>"; };
 		8E65650927E8CBCD00679DEA /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		8E65650C27E8CDB000679DEA /* CovidAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidAPI.swift; sourceTree = "<group>"; };
+		8E65650F27E8CFC200679DEA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		8E65651127E8D05400679DEA /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		8EC5010E27E893E600CC9F94 /* Covid-Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC5011127E893E600CC9F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC5011327E893E600CC9F94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 		8E6564FE27E8C4C900679DEA /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				8E65650B27E8CD6000679DEA /* API */,
 				8E65650727E8CB1100679DEA /* DefaultRequestable.swift */,
 				8E65650927E8CBCD00679DEA /* NetworkRequest.swift */,
 			);
@@ -212,6 +219,23 @@
 				8E65650327E8C8BF00679DEA /* Colors.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		8E65650B27E8CD6000679DEA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				8E65650C27E8CDB000679DEA /* CovidAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		8E65650E27E8CFB300679DEA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8E65650F27E8CFC200679DEA /* Config.swift */,
+				8E65651127E8D05400679DEA /* Encodable.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		8EC5010527E893E600CC9F94 = {
@@ -239,6 +263,7 @@
 		8EC5011027E893E600CC9F94 /* Covid-Info */ = {
 			isa = PBXGroup;
 			children = (
+				8E65650E27E8CFB300679DEA /* Utils */,
 				8E65650227E8C89500679DEA /* Resources */,
 				8E6564FD27E8C49C00679DEA /* Data */,
 				8E6564F927E8C46200679DEA /* Domain */,
@@ -664,6 +689,7 @@
 				8E65650827E8CB1100679DEA /* DefaultRequestable.swift in Sources */,
 				8EC5011227E893E600CC9F94 /* AppDelegate.swift in Sources */,
 				8EC5015427E89A7300CC9F94 /* DataViewController.swift in Sources */,
+				8E65650D27E8CDB000679DEA /* CovidAPI.swift in Sources */,
 				8EC5016227E89C3E00CC9F94 /* SettingViewController.swift in Sources */,
 				8E6564F727E8AC2800679DEA /* DataViewModel.swift in Sources */,
 				8EC5016727E89D6C00CC9F94 /* TabBarViewController.swift in Sources */,
@@ -671,6 +697,8 @@
 				8EC5015627E89A8A00CC9F94 /* InfoViewController.swift in Sources */,
 				8E65650127E8C54200679DEA /* Covid.swift in Sources */,
 				8E65650627E8CAA600679DEA /* Requestable.swift in Sources */,
+				8E65651027E8CFC200679DEA /* Config.swift in Sources */,
+				8E65651227E8D05400679DEA /* Encodable.swift in Sources */,
 				8EC5011C27E893E600CC9F94 /* Covid_Info.xcdatamodeld in Sources */,
 				8EC5015F27E89C2300CC9F94 /* CommunityViewController.swift in Sources */,
 			);

@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct Covid {
-    
+struct Covid : Codable {
+    var ServiceKey: String
+    var pageNo: Int
+    var numOfRows: Int
+    var startCreateDt: String
+    var endCreateDt: String
 }
