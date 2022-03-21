@@ -19,7 +19,9 @@ final class DefaultRequestable: Requestable {
         guard let url = req.baseURL else {
             return AnyPublisher(Fail<Data, NetworkError>(error: NetworkError.badURL("Invalid URL")))
         }
-        return URLSession.shared.dataTaskPublisher(for: url)
+        
+        guard let urlRequest = req.urlRequest else {  return AnyPublisher(Fail<Data, NetworkError>(error: NetworkError.badURL("Invalid URL"))) }
+        return URLSession.shared.dataTaskPublisher(for: urlRequest)
             .tryMap { data, response -> Data in
                 guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
                     switch (response as? HTTPURLResponse)?.statusCode {
@@ -30,8 +32,9 @@ final class DefaultRequestable: Requestable {
                     }
                 }
                 return data
-            }.mapError { error in
-                NetworkError.invalidJSON(String(describing: error))
+            }
+            .mapError { error in
+                return NetworkError.invalidJSON(String(describing: error))
             }
             .eraseToAnyPublisher()
     }
@@ -40,7 +43,15 @@ final class DefaultRequestable: Requestable {
         return request(req)
             .decode(type: T.self, decoder: decoder)
             .mapError { error in
-                NetworkError.invalidJSON(String(describing: error))
+                switch error {
+                case is URLError:
+                    print("url error")
+                case is DecodingError:
+                    print("decoding error")
+                default:
+                    print("noting")
+                }
+                return NetworkError.invalidJSON(String(describing: error))
             }
             .eraseToAnyPublisher()
     }

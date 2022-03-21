@@ -11,7 +11,7 @@ protocol NetworkRequest {
     var baseURL: URL? { get }
     var requestURL: URL? { get }
     var path: String? { get }
-    var parameters: [String: Any]? { get }
+    var parameters: [String: String]? { get }
     var method: HTTPMethod { get }
     var headers: [String:Any]? { get }
     var body: [String: Any]? { get }
@@ -34,13 +34,15 @@ extension NetworkRequest {
         var component = URLComponents(url: requestURL, resolvingAgainstBaseURL: false)
         
         var parameter = [URLQueryItem]()
+        print("paramters 2: \(parameters)")
+        
         if let parameters = self.parameters {
             for (name, value) in parameters {
-                if name.isEmpty { continue }
-                parameter.append(URLQueryItem(name: name, value: value as? String))
+                parameter.append(URLQueryItem(name: name, value: value))
             }
             if !parameter.isEmpty {
                 component?.queryItems = parameter
+                
             }
         }
         

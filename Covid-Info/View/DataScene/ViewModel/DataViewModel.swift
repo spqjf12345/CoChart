@@ -12,7 +12,7 @@ class DataViewModel {
     var subscriptions = Set<AnyCancellable>()
     let covidRepository: CovidRepository
     
-    let request =  CovidRequest(ServiceKey: Config.secretKey, pageNo: 1, numOfRows: 10, startCreateDt: "20200310", endCreateDt: "20200315")
+    let request =  CovidRequest(serviceKey: Config.serviceKey, pageNo: "1", numOfRows: "10", startCreateDt: "20200310", endCreateDt: "20200315")
     
     init(covidRepository: CovidRepository) {
         self.covidRepository = covidRepository

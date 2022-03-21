@@ -8,28 +8,48 @@
 import Foundation
 
 struct CovidRequest : Codable {
-    var ServiceKey: String
-    var pageNo: Int
-    var numOfRows: Int
+    var serviceKey: String
+    var pageNo: String
+    var numOfRows: String
     var startCreateDt: String
     var endCreateDt: String
 }
 
 struct CovidResponse: Codable {
-    var items: [Item]
-    var numOfRows: Int
-    var pageNo: Int
-    var totalCount: Int
+    var response: CovidRes
+}
+
+struct CovidRes: Codable {
+    var header: CovidResponseHeader
+    var body: CovidResponseBody
+}
+
+
+struct CovidResponseHeader: Codable {
+    var resultCode: String
+    var resultMsg: String
+}
+
+struct CovidResponseBody: Codable {
+    var items: Item
+    var numOfRows: String
+    var pageNo: String
+    var totalCount: String
 }
 
 struct Item: Codable {
-    var accDefRate: Double
-    var accExamCnt: Int
+    var item: [ItemResponse]
+}
+
+struct ItemResponse: Codable {
+    var accDefRate: String
+    var accExamCnt: String
     var createDt: String
-    var deathCnt: Int
-    var decideCnt: Int
-    var seq: Int
+    var deathCnt: String
+    var decideCnt: String
+    var seq: String
     var stateDt: String
     var stateTime: String
     var updateDt: String
 }
+

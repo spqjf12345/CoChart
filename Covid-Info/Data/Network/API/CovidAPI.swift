@@ -15,22 +15,22 @@ enum CovidAPI: NetworkRequest {
 extension CovidAPI {
     var baseURL: URL? {
         switch self {
-        case .getInfo:
-            return URL(string: Config.url)
+        case .getInfo(let request):
+            return URL(string: "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=\(request.serviceKey)&pageNo=\(request.pageNo)&numOfRows=\(request.numOfRows)&startCreateDt=\(request.startCreateDt)&endCreateDt=\(request.endCreateDt)")
         }
     }
     
     var path: String? {
         switch self {
-        case .getInfo:
-            return "/service/rest/Covid19/getCovid19InfStateJson"
+        case .getInfo(let request):
+            return nil
         }
     }
     
-    var parameters: [String: Any]? {
+    var parameters: [String: String]? {
         switch self {
         case .getInfo(let request):
-            return request.dictionary
+            return nil
         default:
             return nil
         }

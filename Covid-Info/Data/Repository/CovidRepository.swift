@@ -17,6 +17,7 @@ class CovidRepository: CovidRepositoryProtocol {
     
     func getCovid(request: CovidRequest) -> AnyPublisher<CovidResponse, NetworkError> {
         let request = CovidAPI.getInfo(request)
+        print(request.baseURL)
         let publisher: AnyPublisher<CovidResponse, NetworkError> = self.networkRequest.request(request)
         return publisher
     }
