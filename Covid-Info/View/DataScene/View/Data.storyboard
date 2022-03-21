@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--title-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DataViewController" id="Y6W-OH-hqX" customClass="DataViewController" customModule="Covid_Info" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9AP-If-KeQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                <color key="backgroundColor" red="0.039829656040000001" green="0.083748560789999996" blue="0.2249036847" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="dDG-PF-jdu"/>
+                                </constraints>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="CoChart" id="Mrs-Jp-lnh"/>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7q-4x-0ZC">
+                                <rect key="frame" x="0.0" y="120" width="414" height="693"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeX-UY-OBh" userLabel="FramView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1693"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hpr-JB-oNT">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="270"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일일 확진자 수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSY-Y1-rjm">
+                                                        <rect key="frame" x="20" y="20" width="115" height="24"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <constraints>
+                                                    <constraint firstItem="bSY-Y1-rjm" firstAttribute="leading" secondItem="Hpr-JB-oNT" secondAttribute="leading" constant="20" id="Ftk-kc-G61"/>
+                                                    <constraint firstItem="bSY-Y1-rjm" firstAttribute="top" secondItem="Hpr-JB-oNT" secondAttribute="top" constant="20" id="YRa-wG-vh3"/>
+                                                    <constraint firstAttribute="height" constant="270" id="gDt-yF-Foa"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Hpr-JB-oNT" firstAttribute="top" secondItem="ZeX-UY-OBh" secondAttribute="top" id="4MD-0T-3n2"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hpr-JB-oNT" secondAttribute="trailing" id="C8i-vD-h3O"/>
+                                            <constraint firstItem="Hpr-JB-oNT" firstAttribute="leading" secondItem="ZeX-UY-OBh" secondAttribute="leading" id="xCu-gj-KFb"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZeX-UY-OBh" firstAttribute="height" secondItem="zUf-ml-wnU" secondAttribute="height" priority="250" constant="1000" id="1Qf-3C-tAe"/>
+                                    <constraint firstItem="ZeX-UY-OBh" firstAttribute="leading" secondItem="s9h-j6-iVX" secondAttribute="leading" id="DNp-DY-8YF"/>
+                                    <constraint firstItem="ZeX-UY-OBh" firstAttribute="top" secondItem="s9h-j6-iVX" secondAttribute="top" id="QBf-fw-JKW"/>
+                                    <constraint firstItem="ZeX-UY-OBh" firstAttribute="bottom" secondItem="s9h-j6-iVX" secondAttribute="bottom" id="UHn-LO-NI2"/>
+                                    <constraint firstItem="ZeX-UY-OBh" firstAttribute="trailing" secondItem="s9h-j6-iVX" secondAttribute="trailing" id="nEx-AK-CLO"/>
+                                    <constraint firstItem="ZeX-UY-OBh" firstAttribute="width" secondItem="zUf-ml-wnU" secondAttribute="width" id="uU8-1K-bLM"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="s9h-j6-iVX"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="zUf-ml-wnU"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <constraints>
+                            <constraint firstItem="9AP-If-KeQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="LMV-MF-tSE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="X7q-4x-0ZC" secondAttribute="trailing" id="Ltk-Th-tpL"/>
+                            <constraint firstItem="9AP-If-KeQ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="U4j-D0-cgK"/>
+                            <constraint firstItem="X7q-4x-0ZC" firstAttribute="top" secondItem="9AP-If-KeQ" secondAttribute="bottom" id="d6A-bk-8oU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="X7q-4x-0ZC" secondAttribute="bottom" id="gBX-bC-xsq"/>
+                            <constraint firstItem="X7q-4x-0ZC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="sXN-kf-XXP"/>
+                            <constraint firstItem="9AP-If-KeQ" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="vnh-Kj-a6c"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="data" image="chart.bar.doc.horizontal" catalog="system" id="v8C-Ua-6tZ"/>
+                    <navigationItem key="navigationItem" title="title" id="tya-fw-fFO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="414" height="896"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="82.366071428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chart.bar.doc.horizontal" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Hn-kc-MNJ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -11,10 +11,11 @@
             <objects>
                 <viewControllerPlaceholder storyboardName="Data" referencedIdentifier="DataViewController" id="xax-cg-ICJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Osd-KT-Su5"/>
+                    <navigationItem key="navigationItem" id="Zdd-Yg-cPr"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6k1-Al-Gck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414" y="-207"/>
+            <point key="canvasLocation" x="361" y="-225"/>
         </scene>
         <!--InfoViewController-->
         <scene sceneID="hvK-em-vC6">
@@ -46,20 +47,21 @@
             </objects>
             <point key="canvasLocation" x="350" y="55"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="vRE-Me-8EM">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8Hn-kc-MNJ" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8Hn-kc-MNJ" customClass="TabBarViewController" customModule="Covid_Info" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="reO-NC-KhU">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="xax-cg-ICJ" kind="relationship" relationship="viewControllers" id="tkq-he-zV2"/>
-                        <segue destination="2Zp-8F-IYM" kind="relationship" relationship="viewControllers" id="0xX-bj-RWy"/>
-                        <segue destination="bd1-K2-IXF" kind="relationship" relationship="viewControllers" id="J0L-MM-sMM"/>
-                        <segue destination="0DI-5Z-18o" kind="relationship" relationship="viewControllers" id="ZEU-Rk-8CH"/>
+                        <segue destination="xax-cg-ICJ" kind="relationship" relationship="viewControllers" id="P9Y-Mx-uTA"/>
+                        <segue destination="2Zp-8F-IYM" kind="relationship" relationship="viewControllers" id="SKh-jC-sfW"/>
+                        <segue destination="bd1-K2-IXF" kind="relationship" relationship="viewControllers" id="NgS-QX-heZ"/>
+                        <segue destination="0DI-5Z-18o" kind="relationship" relationship="viewControllers" id="Yev-YY-UXT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2H-ZS-bFJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

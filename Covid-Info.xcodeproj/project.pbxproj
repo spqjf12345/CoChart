@@ -25,6 +25,7 @@
 		8EC5015A27E89AA800CC9F94 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EC5015927E89AA800CC9F94 /* Setting.storyboard */; };
 		8EC5015F27E89C2300CC9F94 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5015E27E89C2300CC9F94 /* CommunityViewController.swift */; };
 		8EC5016227E89C3E00CC9F94 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5016127E89C3E00CC9F94 /* SettingViewController.swift */; };
+		8EC5016727E89D6C00CC9F94 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5016627E89D6C00CC9F94 /* TabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		8EC5015927E89AA800CC9F94 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		8EC5015E27E89C2300CC9F94 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		8EC5016127E89C3E00CC9F94 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		8EC5016627E89D6C00CC9F94 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +119,8 @@
 		8EC5011027E893E600CC9F94 /* Covid-Info */ = {
 			isa = PBXGroup;
 			children = (
+				8EC5016527E89CD300CC9F94 /* View */,
 				8EC5014B27E899F400CC9F94 /* Model */,
-				8EC5014727E899CE00CC9F94 /* SettingScene */,
-				8EC5014627E899C000CC9F94 /* CommunityScene */,
-				8EC5014527E8999100CC9F94 /* DataScene */,
-				8EC5014427E8998900CC9F94 /* InfoScene */,
 				8EC5011127E893E600CC9F94 /* AppDelegate.swift */,
 				8EC5011327E893E600CC9F94 /* SceneDelegate.swift */,
 				8EC5011527E893E600CC9F94 /* ViewController.swift */,
@@ -290,6 +289,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8EC5016527E89CD300CC9F94 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EC5014527E8999100CC9F94 /* DataScene */,
+				8EC5014427E8998900CC9F94 /* InfoScene */,
+				8EC5014627E899C000CC9F94 /* CommunityScene */,
+				8EC5014727E899CE00CC9F94 /* SettingScene */,
+				8EC5016627E89D6C00CC9F94 /* TabBarViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -429,6 +440,7 @@
 				8EC5011227E893E600CC9F94 /* AppDelegate.swift in Sources */,
 				8EC5015427E89A7300CC9F94 /* DataViewController.swift in Sources */,
 				8EC5016227E89C3E00CC9F94 /* SettingViewController.swift in Sources */,
+				8EC5016727E89D6C00CC9F94 /* TabBarViewController.swift in Sources */,
 				8EC5011427E893E600CC9F94 /* SceneDelegate.swift in Sources */,
 				8EC5015627E89A8A00CC9F94 /* InfoViewController.swift in Sources */,
 				8EC5011C27E893E600CC9F94 /* Covid_Info.xcdatamodeld in Sources */,
