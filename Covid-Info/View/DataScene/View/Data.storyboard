@@ -47,12 +47,35 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csT-lz-Dgq">
+                                                        <rect key="frame" x="18" y="64" width="378" height="196"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFT-6I-24X" userLabel="ChartView" customClass="BarChartView" customModule="Charts">
+                                                                <rect key="frame" x="0.0" y="0.0" width="878" height="196"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="vFT-6I-24X" firstAttribute="trailing" secondItem="HiY-Um-fOH" secondAttribute="trailing" id="GtS-iI-hoy"/>
+                                                            <constraint firstItem="vFT-6I-24X" firstAttribute="top" secondItem="HiY-Um-fOH" secondAttribute="top" id="M6z-gi-pk3"/>
+                                                            <constraint firstItem="vFT-6I-24X" firstAttribute="width" secondItem="jBM-wP-azy" secondAttribute="width" priority="250" constant="500" id="gKi-Dz-03R"/>
+                                                            <constraint firstItem="vFT-6I-24X" firstAttribute="leading" secondItem="HiY-Um-fOH" secondAttribute="leading" id="swl-qc-c97"/>
+                                                            <constraint firstItem="vFT-6I-24X" firstAttribute="bottom" secondItem="HiY-Um-fOH" secondAttribute="bottom" id="vt7-x6-6Rb"/>
+                                                            <constraint firstItem="vFT-6I-24X" firstAttribute="height" secondItem="jBM-wP-azy" secondAttribute="height" id="yuX-hW-Oc3"/>
+                                                        </constraints>
+                                                        <viewLayoutGuide key="contentLayoutGuide" id="HiY-Um-fOH"/>
+                                                        <viewLayoutGuide key="frameLayoutGuide" id="jBM-wP-azy"/>
+                                                    </scrollView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="csT-lz-Dgq" secondAttribute="bottom" constant="10" id="1zd-5V-69P"/>
                                                     <constraint firstItem="bSY-Y1-rjm" firstAttribute="leading" secondItem="Hpr-JB-oNT" secondAttribute="leading" constant="20" id="Ftk-kc-G61"/>
+                                                    <constraint firstItem="csT-lz-Dgq" firstAttribute="leading" secondItem="Hpr-JB-oNT" secondAttribute="leading" constant="18" id="IYc-zX-fSz"/>
                                                     <constraint firstItem="bSY-Y1-rjm" firstAttribute="top" secondItem="Hpr-JB-oNT" secondAttribute="top" constant="20" id="YRa-wG-vh3"/>
                                                     <constraint firstAttribute="height" constant="270" id="gDt-yF-Foa"/>
+                                                    <constraint firstItem="csT-lz-Dgq" firstAttribute="top" secondItem="bSY-Y1-rjm" secondAttribute="bottom" constant="20" id="jTj-q9-eQx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="csT-lz-Dgq" secondAttribute="trailing" constant="18" id="uh0-BF-W8X"/>
                                                 </constraints>
                                             </view>
                                         </subviews>

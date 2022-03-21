@@ -1,0 +1,6 @@
+framework module Pods_Covid_Info_Covid_InfoUITests {
+  umbrella header "Pods-Covid-Info-Covid-InfoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

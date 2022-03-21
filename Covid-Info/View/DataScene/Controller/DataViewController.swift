@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import Charts
+import Combine
 
 class DataViewController: UIViewController {
 
+    @IBOutlet var chartView: BarChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
