@@ -8,30 +8,41 @@
 import Foundation
 import Combine
 
-public class DefaultRequestable: Requestable {
-    public func request<T>(_ req: NetworkRequest) -> AnyPublisher<T, NetworkError> where T : Decodable, T : Encodable {
-        let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = TimeInterval(req.requestTimeOut ?? requestTimeout)
+final class DefaultRequestable: Requestable {
+    
+    static let shared: DefaultRequestable = DefaultRequestable()
+    
+    private let decoder: JSONDecoder = JSONDecoder()
+    
+    func request(_ req: NetworkRequest) -> AnyPublisher<Data, NetworkError> {
         
-        guard let url = URL(string: req.url) else {
-            return AnyPublisher(Fail<T, NetworkError>(error: NetworkError.badURL("Invalid URL")))
+        guard let url = req.baseURL else {
+            return AnyPublisher(Fail<Data, NetworkError>(error: NetworkError.badURL("Invalid URL")))
         }
-        
-        return URLSession.shared
-            .dataTaskPublisher(for: req.buildURLRequest(with: url))
-            .tryMap { output in
-                guard output.response is HTTPURLResponse else {
-                    throw NetworkError.serverError(code: 0, error: "Server error")
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap { data, response -> Data in
+                guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
+                    switch (response as? HTTPURLResponse)?.statusCode {
+                    case .some(404):
+                        throw NetworkError.badRequest(code: 404, error: "bad request")
+                    default:
+                        throw NetworkError.serverError(code: 500, error: "server error")
+                    }
                 }
-                return output.data
+                return data
+            }.mapError { error in
+                NetworkError.invalidJSON(String(describing: error))
             }
-            .decode(type: T.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func request<T: Decodable>(_ req: NetworkRequest) -> AnyPublisher<T, NetworkError> {
+        return request(req)
+            .decode(type: T.self, decoder: decoder)
             .mapError { error in
-         NetworkError.invalidJSON(String(describing: error))
-     }
-     .eraseToAnyPublisher()
-        
-        
+                NetworkError.invalidJSON(String(describing: error))
+            }
+            .eraseToAnyPublisher()
     }
     
     public var requestTimeout: Float = 30

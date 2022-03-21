@@ -12,10 +12,11 @@ import Combine
 class DataViewController: UIViewController {
 
     @IBOutlet var chartView: BarChartView!
+    let viewModel = DataViewModel(covidRepository: CovidRepository(networkRequest: DefaultRequestable()))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel.getCovid()
     }
     
 

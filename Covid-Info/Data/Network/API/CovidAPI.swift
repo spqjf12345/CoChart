@@ -6,42 +6,97 @@
 //
 
 import Foundation
-import Moya
 
-enum CovidAPI {
-    case getInfo(covidRequest: Covid)
+
+enum CovidAPI: NetworkRequest {
+    case getInfo(CovidRequest)
 }
 
-extension CovidAPI: TargetType {
-    var baseURL: URL {
-        return URL(string: Config.url)!
-    }
-    
-    var path: String {
+extension CovidAPI {
+    var baseURL: URL? {
         switch self {
         case .getInfo:
-            return "/service/rest/Covid19"
+            return URL(string: Config.url)
         }
     }
     
-    var method: Moya.Method {
+    var path: String? {
+        switch self {
+        case .getInfo:
+            return "/service/rest/Covid19/getCovid19InfStateJson"
+        }
+    }
+    
+    var parameters: [String: Any]? {
+        switch self {
+        case .getInfo(let request):
+            return request.dictionary
+        default:
+            return nil
+        }
+    }
+    
+    var method: HTTPMethod {
         switch self {
         case .getInfo:
             return .get
         }
     }
     
-    var task: Task {
+    var body: [String: Any]? {
         switch self {
-        case .getInfo(let covidRequest):
-            return .requestParameters(parameters: covidRequest.dictionary, encoding: JSONEncoding.default)
+        case .getInfo:
+            return nil
         }
-        
     }
     
-    var headers: [String : String]? {
-        return nil
+    
+    var headers: [String : Any]? {
+        switch self {
+        case .getInfo:
+            return nil
+        }
     }
     
+    var binary: Data? {
+        switch self {
+        default:
+            return nil
+        }
+    }
     
 }
+
+//extension CovidAPI: TargetType {
+//    var baseURL: URL {
+//        return URL(string: Config.url)!
+//    }
+//
+//    var path: String {
+//        switch self {
+//        case .getInfo:
+//            return "/service/rest/Covid19"
+//        }
+//    }
+//
+//    var method: Moya.Method {
+//        switch self {
+//        case .getInfo:
+//            return .get
+//        }
+//    }
+//
+//    var task: Task {
+//        switch self {
+//        case .getInfo(let covidRequest):
+//            return .requestParameters(parameters: covidRequest.dictionary, encoding: JSONEncoding.default)
+//        }
+//
+//    }
+//
+//    var headers: [String : String]? {
+//        return nil
+//    }
+//
+//
+//}

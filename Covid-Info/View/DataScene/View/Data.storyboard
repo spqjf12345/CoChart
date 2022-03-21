@@ -115,6 +115,9 @@
                     <navigationItem key="navigationItem" title="title" id="tya-fw-fFO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="896"/>
+                    <connections>
+                        <outlet property="chartView" destination="vFT-6I-24X" id="KHt-s6-ADG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
