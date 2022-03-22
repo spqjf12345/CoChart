@@ -1,0 +1,129 @@
+/* 
+  SocialDistance.json
+  Covid-Info
+
+  Created by JoSoJeong on 2022/03/23.
+  
+*/
+
+{
+    "updateDate" : 2022.03.22,
+    "dueDate": [2022.03.21, 2022.04.03],
+    "summary" : [
+        {
+        "Title" : "사적모임 인원 소폭 조정 (6인->8인), 영업시간 23시 기준 유지, 3월 21일부터 2주간 시행 (3.21.~4.3.)",
+        "Detail" : ["유행이 계속 증가하는 상황에서 큰 폭의 완화는 어려운 점을 감안한 결정"]
+    },{
+        "Title" : "병상 확충 및 병상 운영 효율화를 통해 확진자 증가에 대응",
+        "Detail" : ["치료병상의 유형별 특성, 지정원칙 등 고려 병상 확충을 추진하되, 가동률이 높은 중증·준중증 병상을 우선 확충", "원적정성 평가 절차 단축(퇴실 권고 없이 즉시 명령), 격리해제 환자에 대한 전원 등 관리 강화*를 통한 병상 운영 효율화 추진"]
+    },{
+        "Title" : "코로나19 2월 간 중증화율 및 치명률은 지난 1월 대비 급감",
+        "Detail" : ["중증화율) 1월 0.63% → 2월 0.16%, (치명률) 1월 0.31% → 2월 0.09%"]
+    }],
+    "Category" : [
+    {
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    },{
+        "place" : [],
+        "operatingTime" : "",
+        "isEat" : "",
+        "other" : ""
+        
+    }
+    
+    ]
+}

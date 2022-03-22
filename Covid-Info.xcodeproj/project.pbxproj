@@ -24,6 +24,7 @@
 		8E7C33CC27E8E7A3003EDC65 /* CovidRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C33CB27E8E7A3003EDC65 /* CovidRepository.swift */; };
 		8E7C33CF27E8E7DE003EDC65 /* CovidRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C33CE27E8E7DE003EDC65 /* CovidRepositoryProtocol.swift */; };
 		8E7C33D127E8E911003EDC65 /* CovidUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C33D027E8E911003EDC65 /* CovidUseCase.swift */; };
+		8E82D23C27EA27EA00ED54F9 /* SocialDistance.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E82D23B27EA27EA00ED54F9 /* SocialDistance.json */; };
 		8EC5011227E893E600CC9F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5011127E893E600CC9F94 /* AppDelegate.swift */; };
 		8EC5011427E893E600CC9F94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5011327E893E600CC9F94 /* SceneDelegate.swift */; };
 		8EC5011627E893E600CC9F94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5011527E893E600CC9F94 /* ViewController.swift */; };
@@ -83,6 +84,7 @@
 		8E7C33CB27E8E7A3003EDC65 /* CovidRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidRepository.swift; sourceTree = "<group>"; };
 		8E7C33CE27E8E7DE003EDC65 /* CovidRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidRepositoryProtocol.swift; sourceTree = "<group>"; };
 		8E7C33D027E8E911003EDC65 /* CovidUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidUseCase.swift; sourceTree = "<group>"; };
+		8E82D23B27EA27EA00ED54F9 /* SocialDistance.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SocialDistance.json; sourceTree = "<group>"; };
 		8EC5010E27E893E600CC9F94 /* Covid-Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC5011127E893E600CC9F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EC5011327E893E600CC9F94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				8E65650F27E8CFC200679DEA /* Config.swift */,
 				8E65651127E8D05400679DEA /* Encodable.swift */,
 				8E66DEC227E9122F00F13BBD /* ParseXMLData.swift */,
+				8E82D23B27EA27EA00ED54F9 /* SocialDistance.json */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				8E65650427E8C8BF00679DEA /* Colors.xcassets in Resources */,
 				8EC5014E27E89A3900CC9F94 /* Data.storyboard in Resources */,
 				8EC5011927E893E600CC9F94 /* Main.storyboard in Resources */,
+				8E82D23C27EA27EA00ED54F9 /* SocialDistance.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

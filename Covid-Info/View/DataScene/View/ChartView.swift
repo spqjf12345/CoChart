@@ -13,7 +13,7 @@ struct ChartView: View {
     @ObservedObject var chartData:  DataViewModel
     
     var body: some View {
-        BarChartView(data: ChartData(values: chartData.chartData), title: "",dropShadow = false, style: Styles.barChartMidnightGreenLight, form: CGSize(width:800, height:200))
+        BarChartView(data: ChartData(values: chartData.chartData), title: "", style: Styles.barChartMidnightGreenLight, form: CGSize(width:800, height:200))
             
             
     }
