@@ -6,7 +6,18 @@
 //
 
 import Foundation
+import Combine
 
-class CovidUseCase {
+class CovidUseCase: CovidRepositoryProtocol {
+    private let covidRepository: CovidRepository
+    
+    init(covidRepository: CovidRepository){
+        self.covidRepository = covidRepository
+    }
+    
+    func getCovid(request: CovidRequest) -> AnyPublisher<CovidResponse, NetworkError> {
+        return covidRepository.getCovid(request: request)
+    }
+    
     
 }

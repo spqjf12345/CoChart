@@ -18,6 +18,7 @@
 		8E65651027E8CFC200679DEA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650F27E8CFC200679DEA /* Config.swift */; };
 		8E65651227E8D05400679DEA /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65651127E8D05400679DEA /* Encodable.swift */; };
 		8E66DEC327E9122F00F13BBD /* ParseXMLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E66DEC227E9122F00F13BBD /* ParseXMLData.swift */; };
+		8E66DEC627E9A4A600F13BBD /* CovidUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E66DEC527E9A4A600F13BBD /* CovidUseCaseProtocol.swift */; };
 		8E7C33CC27E8E7A3003EDC65 /* CovidRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C33CB27E8E7A3003EDC65 /* CovidRepository.swift */; };
 		8E7C33CF27E8E7DE003EDC65 /* CovidRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C33CE27E8E7DE003EDC65 /* CovidRepositoryProtocol.swift */; };
 		8E7C33D127E8E911003EDC65 /* CovidUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7C33D027E8E911003EDC65 /* CovidUseCase.swift */; };
@@ -75,6 +76,7 @@
 		8E65650F27E8CFC200679DEA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		8E65651127E8D05400679DEA /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		8E66DEC227E9122F00F13BBD /* ParseXMLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseXMLData.swift; sourceTree = "<group>"; };
+		8E66DEC527E9A4A600F13BBD /* CovidUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidUseCaseProtocol.swift; sourceTree = "<group>"; };
 		8E7C33CB27E8E7A3003EDC65 /* CovidRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidRepository.swift; sourceTree = "<group>"; };
 		8E7C33CE27E8E7DE003EDC65 /* CovidRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidRepositoryProtocol.swift; sourceTree = "<group>"; };
 		8E7C33D027E8E911003EDC65 /* CovidUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidUseCase.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		8E6564FC27E8C48C00679DEA /* Inferface */ = {
 			isa = PBXGroup;
 			children = (
+				8E66DEC427E9A49300F13BBD /* UseCaseProtocol */,
 				8E7C33CD27E8E7C9003EDC65 /* RepositoryProtocol */,
 				8E65650527E8CAA600679DEA /* Requestable.swift */,
 			);
@@ -248,6 +251,14 @@
 				8E66DEC227E9122F00F13BBD /* ParseXMLData.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8E66DEC427E9A49300F13BBD /* UseCaseProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				8E66DEC527E9A4A600F13BBD /* CovidUseCaseProtocol.swift */,
+			);
+			path = UseCaseProtocol;
 			sourceTree = "<group>";
 		};
 		8E7C33CD27E8E7C9003EDC65 /* RepositoryProtocol */ = {
@@ -717,6 +728,7 @@
 				8EC5016727E89D6C00CC9F94 /* TabBarViewController.swift in Sources */,
 				8E7C33D127E8E911003EDC65 /* CovidUseCase.swift in Sources */,
 				8EC5011427E893E600CC9F94 /* SceneDelegate.swift in Sources */,
+				8E66DEC627E9A4A600F13BBD /* CovidUseCaseProtocol.swift in Sources */,
 				8EC5015627E89A8A00CC9F94 /* InfoViewController.swift in Sources */,
 				8E65650127E8C54200679DEA /* Covid.swift in Sources */,
 				8E65650627E8CAA600679DEA /* Requestable.swift in Sources */,

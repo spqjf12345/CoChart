@@ -9,17 +9,18 @@ import Combine
 
 
 class DataViewModel {
-    var subscriptions = Set<AnyCancellable>()
-    let covidRepository: CovidRepository
+    var cancellables = Set<AnyCancellable>()
+    let covidUseCase: CovidUseCaseProtocol
+    @Published var covidData: CovidResponse?
     
     let request =  CovidRequest(serviceKey: Config.serviceKey, pageNo: "1", numOfRows: "10", startCreateDt: "20200310", endCreateDt: "20200315")
     
-    init(covidRepository: CovidRepository) {
-        self.covidRepository = covidRepository
+    init(covidUseCase: CovidUseCaseProtocol) {
+        self.covidUseCase = covidUseCase
     }
     
-    func getCovid() {
-        covidRepository.getCovid(request: request)
+    func getCovid(for request: CovidRequest) {
+        covidUseCase.getCovidData(for: request)
             .sink { (completion) in
                 switch completion {
                 case .failure(let error):
@@ -29,6 +30,6 @@ class DataViewModel {
                 }
             } receiveValue : { response in
                 print("res \(response)")
-            }.store(in: &subscriptions)
+            }.store(in: &cancellables)
     }
 }
