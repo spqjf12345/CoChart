@@ -38,7 +38,7 @@ struct CovidResponseBody: Codable {
 }
 
 struct Item: Codable {
-    var item: [ItemResponse]
+   var item: [ItemResponse]
 }
 
 struct ItemResponse: Codable {

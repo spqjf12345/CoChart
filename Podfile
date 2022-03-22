@@ -6,7 +6,7 @@ target 'Covid-Info' do
   use_frameworks!
 
   # Pods for Covid-Info
-pod 'Charts'
+
 pod 'SnapKit', '~> 5.0.0'
 pod "PromiseKit", "~> 6.8"
 pod 'Moya/Combine', '~> 15.0'
