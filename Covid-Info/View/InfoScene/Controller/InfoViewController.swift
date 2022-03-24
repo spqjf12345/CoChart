@@ -6,24 +6,33 @@
 //
 
 import UIKit
+import SnapKit
+import SwiftUI
 
 class InfoViewController: UIViewController {
-
+    @IBOutlet weak var frameView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        addSubview()
+  
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addSubview(){
+        let infoView = InfoView()
+        let controller = UIHostingController(rootView: infoView)
+        self.addChild(controller)
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        frameView.addSubview(controller.view)
+        
+        controller.didMove(toParent: self)
+        controller.view.snp.makeConstraints { make in
+            make.top.equalTo(frameView.snp.top)
+            make.leading.equalTo(frameView.snp.leading)
+            make.trailing.equalTo(frameView.snp.trailing)
+            make.bottom.equalTo(frameView.snp.bottom)
+        }
     }
-    */
+    
 
 }

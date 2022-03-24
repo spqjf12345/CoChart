@@ -51,6 +51,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="info" image="info" catalog="system" id="iuq-Yo-Swj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="frameView" destination="SfT-hb-bqf" id="EW6-c4-Pbf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,17 +12,15 @@ struct SocialDistance: Codable {
     var dueDate: [String]
     var summary: [Summary]
     var category: [Category]
-    
-    
-    
 }
 
 struct Summary: Codable {
     var title: String
-    var detail: String
+    var detail: [String]
 }
 
-struct Category: Codable {
+struct Category: Codable, Identifiable {
+    var id: Int
     var place: [String]
     var operatingTime: String
     var isEat: String
