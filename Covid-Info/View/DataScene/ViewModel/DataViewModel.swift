@@ -37,7 +37,7 @@ class DataViewModel: ObservableObject {
         let convertDate = dateFormatter.date(from: dt)
         
         let convertDateFormatter = DateFormatter()
-        convertDateFormatter.dateFormat = "MM.dd" //03.15
+        convertDateFormatter.dateFormat = "dd" //03.15 -> 15
         convertDateFormatter.locale = Locale(identifier:"ko_KR")
         let convertString = convertDateFormatter.string(from: convertDate!)
         return convertString
@@ -67,5 +67,6 @@ class DataViewModel: ObservableObject {
             chartData.append((dateString, cnt))
         }
         chartData = chartData.reversed()
+        print(chartData)
     }
 }

@@ -76,7 +76,7 @@ struct CategoryView: View {
             LazyVGrid(columns: layout, spacing: 20) {
                 ForEach(category, id: \.id) { items in
                     let buttonStr = items.place.joined(separator: "/ ")
-                    CategoruButton(name: buttonStr)
+                    CategoruButton(category: items, name: buttonStr, shown: false)
                 }
             }
         }.background(Color.green).cornerRadius(15)
@@ -97,10 +97,18 @@ struct CenterViewRow: View {
 }
 
 struct CategoruButton: View {
-    var name: String = ""
+    var category: Category!
+    var name: String!
+    @State var shown: Bool
     var body: some View {
+        if self.shown {
+            //show popup View  
+        }
+        
         Button(action: {
-            
+            withAnimation(.spring()){
+                self.shown.toggle()
+            }
         }) {
             Text(name)
                 .padding()
@@ -113,6 +121,23 @@ struct CategoruButton: View {
                             .stroke(Color.purple, lineWidth: 5)
                     )
         }
+    }
+}
+
+struct PopOverView : View {
+    var category: Category!
+    var body: some View {
+        ZStack {
+            Rectangle()
+                    .fill(Color.gray)
+                    .opacity(0.5)
+            VStack {
+                Text("\(category.id)")
+            }.frame(width: 200, height: 200, alignment: .center)
+                .background(RoundedRectangle(cornerRadius: 27).fill(Color.white.opacity(1)))
+                            .overlay(RoundedRectangle(cornerRadius: 27).stroke(Color.black, lineWidth: 1))
+        }
+            
     }
 }
 

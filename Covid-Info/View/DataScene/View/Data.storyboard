@@ -49,10 +49,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csT-lz-Dgq">
-                                                        <rect key="frame" x="36" y="64" width="342" height="196"/>
+                                                        <rect key="frame" x="28" y="64" width="358" height="196"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFT-6I-24X" userLabel="ChartView">
-                                                                <rect key="frame" x="0.0" y="0.0" width="742" height="196"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFT-6I-24X" userLabel="ChartView" customClass="BarChartView" customModule="Charts">
+                                                                <rect key="frame" x="0.0" y="0.0" width="758" height="196"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
@@ -85,13 +86,13 @@
                                                         <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system"/>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="csT-lz-Dgq" secondAttribute="bottom" constant="10" id="1zd-5V-69P"/>
-                                                    <constraint firstItem="fmw-gs-Cxh" firstAttribute="leading" secondItem="csT-lz-Dgq" secondAttribute="trailing" constant="8" id="ALn-5y-TFj"/>
+                                                    <constraint firstItem="fmw-gs-Cxh" firstAttribute="leading" secondItem="csT-lz-Dgq" secondAttribute="trailing" id="ALn-5y-TFj"/>
                                                     <constraint firstItem="bSY-Y1-rjm" firstAttribute="leading" secondItem="Hpr-JB-oNT" secondAttribute="leading" constant="20" id="Ftk-kc-G61"/>
                                                     <constraint firstItem="Qf1-NB-Tu4" firstAttribute="leading" secondItem="Hpr-JB-oNT" secondAttribute="leading" constant="8" id="Rps-wm-mZo"/>
-                                                    <constraint firstItem="csT-lz-Dgq" firstAttribute="leading" secondItem="Qf1-NB-Tu4" secondAttribute="trailing" constant="8" id="SNc-Fm-FQc"/>
+                                                    <constraint firstItem="csT-lz-Dgq" firstAttribute="leading" secondItem="Qf1-NB-Tu4" secondAttribute="trailing" id="SNc-Fm-FQc"/>
                                                     <constraint firstItem="Qf1-NB-Tu4" firstAttribute="centerY" secondItem="csT-lz-Dgq" secondAttribute="centerY" id="VBI-Yt-ppx"/>
                                                     <constraint firstItem="bSY-Y1-rjm" firstAttribute="top" secondItem="Hpr-JB-oNT" secondAttribute="top" constant="20" id="YRa-wG-vh3"/>
                                                     <constraint firstItem="fmw-gs-Cxh" firstAttribute="centerY" secondItem="csT-lz-Dgq" secondAttribute="centerY" id="ac5-oP-5af"/>
@@ -138,7 +139,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
-                        <outlet property="chartView" destination="vFT-6I-24X" id="73v-tM-nLq"/>
+                        <outlet property="chartView" destination="vFT-6I-24X" id="r2b-3U-12B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -158,9 +159,6 @@
         </systemColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
