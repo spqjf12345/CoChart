@@ -16,7 +16,7 @@ extension CovidAPI {
     var baseURL: URL? {
         switch self {
         case .getInfo(let request):
-            return URL(string: Config.url)
+                    return URL(string: "http://openapi.data.go.kr/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=\(request.serviceKey)&pageNo=\(request.pageNo)&numOfRows=\(request.numOfRows)&startCreateDt=\(request.startCreateDt)&endCreateDt=\(request.endCreateDt)")
         }
     }
     

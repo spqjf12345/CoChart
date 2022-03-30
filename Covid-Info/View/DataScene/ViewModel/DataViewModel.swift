@@ -44,7 +44,7 @@ class DataViewModel: ObservableObject {
     }
     
     func getCovid() {
-        let request =  CovidRequest(serviceKey: Config.serviceKey, pageNo: "1", numOfRows: "10", startCreateDt: "20210310", endCreateDt: "20210410")
+        let request =  CovidRequest(serviceKey: Config.baseServiceKey, pageNo: "1", numOfRows: "10", startCreateDt: "20220110", endCreateDt: "20220210")
         covidUseCase.getCovid(request: request)
             .sink { (completion) in
                 switch completion {
