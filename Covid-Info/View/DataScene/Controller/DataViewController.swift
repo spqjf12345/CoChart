@@ -63,7 +63,7 @@ class DataViewController: UIViewController {
         //chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         chartView.drawGridBackgroundEnabled = false
         chartView.xAxis.drawGridLinesEnabled = false
-        chartView.setVisibleXRangeMaximum(30)
+        chartView.setVisibleXRangeMaximum(20)
         chartView.xAxis.setLabelCount(dataPoints.count, force: false)
         chartView.dragXEnabled = true
     }

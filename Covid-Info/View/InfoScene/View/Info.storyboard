@@ -16,37 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ziq-Y2-oyE">
-                                <rect key="frame" x="0.0" y="44" width="414" height="120"/>
-                                <color key="backgroundColor" red="0.039829656040000001" green="0.083748560789999996" blue="0.2249036847" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="Sky-yl-Zut"/>
-                                </constraints>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </textAttributes>
-                                <textAttributes key="largeTitleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="CoChart" id="yeB-9Y-EV6"/>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SfT-hb-bqf">
-                                <rect key="frame" x="0.0" y="164" width="414" height="649"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ziq-Y2-oyE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="0Wc-0S-k0I"/>
-                            <constraint firstItem="Ziq-Y2-oyE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="42x-K6-htK"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ziq-Y2-oyE" secondAttribute="trailing" id="52w-5D-ehe"/>
                             <constraint firstItem="SfT-hb-bqf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="J3U-LA-hTf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SfT-hb-bqf" secondAttribute="trailing" id="PwD-0q-753"/>
+                            <constraint firstItem="SfT-hb-bqf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="SFs-xG-nq9"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="SfT-hb-bqf" secondAttribute="bottom" id="cXS-yG-Zbh"/>
-                            <constraint firstItem="SfT-hb-bqf" firstAttribute="top" secondItem="Ziq-Y2-oyE" secondAttribute="bottom" id="iFw-GP-NpF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="info" image="info" catalog="system" id="iuq-Yo-Swj"/>

@@ -9,30 +9,36 @@ import SwiftUI
 
 struct InfoView: View {
     var info: SocialDistance!
+    @State var shown: Bool = false
+    @State var category: Category = Category(id: 0, place: [], operatingTime: "", isEat: "", other: "")
     
     init() {
         let url = Bundle.main.url(forResource: "SocialDistance", withExtension: "json")!
-        
         let data = try! Data(contentsOf: url)
-        
         info = try! JSONDecoder().decode(SocialDistance.self, from: data)
     }
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("가이드라인").font(.system(size: 30, weight: .bold, design: .default))
-                Spacer()
-                InfoTitleView(startDate: info.dueDate[0], endDate: info.dueDate[1])
-                Spacer()
-                CenterView(summary: info.summary)
-                Spacer()
-                CategoryView(category: info.category)
-    
-            }
-        }.padding()
-       
+        NavigationView {
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("가이드라인").font(.system(size: 30, weight: .bold, design: .default))
+                    Spacer()
+                    InfoTitleView(startDate: info.dueDate[0], endDate: info.dueDate[1])
+                    Spacer()
+                    CenterView(summary: info.summary)
+                    Spacer()
+                    CategoryView(shown: $shown, oneCategory: $category, category: info.category)
+        
+                }
+            }.padding().navigationBarTitle("CoChart", displayMode: .large)
+        
+        }.popupNavigationView(show: $shown, content: {
+            DetailCategoryView(category: $category, shown: $shown)
+        })
+      
     }
+    
 }
 
 struct InfoTitleView: View {
@@ -67,6 +73,9 @@ struct CenterView: View {
 }
 
 struct CategoryView: View {
+    @Binding var shown: Bool
+    @Binding var oneCategory: Category
+    
     var category: [Category]
     let layout = [GridItem(.adaptive(minimum: 80))]
     var body: some View {
@@ -76,7 +85,7 @@ struct CategoryView: View {
             LazyVGrid(columns: layout, spacing: 20) {
                 ForEach(category, id: \.id) { items in
                     let buttonStr = items.place.joined(separator: "/ ")
-                    CategoruButton(category: items, name: buttonStr, shown: false)
+                    CategoruButton(shown: $shown, category: $oneCategory, total: category, name: buttonStr, tag: items.id)
                 }
             }
         }.background(Color.green).cornerRadius(15)
@@ -97,16 +106,16 @@ struct CenterViewRow: View {
 }
 
 struct CategoruButton: View {
-    var category: Category!
+    @Binding var shown: Bool
+    @Binding var category: Category
+    var total: [Category]
     var name: String!
-    @State var shown: Bool
+    var tag: Int
     var body: some View {
-        if self.shown {
-            //show popup View  
-        }
-        
         Button(action: {
             withAnimation(.spring()){
+                print()
+                category = total[tag-1]
                 self.shown.toggle()
             }
         }) {
@@ -124,20 +133,32 @@ struct CategoruButton: View {
     }
 }
 
-struct PopOverView : View {
-    var category: Category!
+struct DetailCategoryView: View {
+    
+    @Binding var category: Category
+    @Binding var shown: Bool
+    
     var body: some View {
-        ZStack {
-            Rectangle()
-                    .fill(Color.gray)
-                    .opacity(0.5)
-            VStack {
-                Text("\(category.id)")
-            }.frame(width: 200, height: 200, alignment: .center)
-                .background(RoundedRectangle(cornerRadius: 27).fill(Color.white.opacity(1)))
-                            .overlay(RoundedRectangle(cornerRadius: 27).stroke(Color.black, lineWidth: 1))
-        }
+        VStack(alignment: .leading, spacing: 10) {
+            HStack() {
+                let places: String = category.place.joined(separator: "/ ")
+                Text(places).font(.system(size: 25, weight: .bold, design: .default)).fixedSize(horizontal: false, vertical: true)
+                Spacer()
+                Button(action: {
+                    shown.toggle()
+                }){ Image(systemName: "xmark.app").foregroundColor(.black) }
+            }.background(Color.blue)
+            Spacer()
+            Text("시간 제한").font(.system(size: 25, weight: .bold, design: .default))
+            Text("- \(category.operatingTime)").font(.system(size: 15)).fixedSize(horizontal: false, vertical: true)
+            Spacer()
+            Text("취식 가능").font(.system(size: 25, weight: .bold, design: .default))
+            Text("- \(category.isEat)").font(.system(size: 15)).fixedSize(horizontal: false, vertical: true)
+            Spacer()
+            Text("기타 사항").font(.system(size: 25, weight: .bold, design: .default))
+            Text("- \(category.other)").font(.system(size: 15)).fixedSize(horizontal: false, vertical: true)
             
+       }.padding()
     }
 }
 

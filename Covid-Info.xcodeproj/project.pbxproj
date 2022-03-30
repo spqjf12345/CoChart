@@ -47,6 +47,7 @@
 		8EC5015F27E89C2300CC9F94 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5015E27E89C2300CC9F94 /* CommunityViewController.swift */; };
 		8EC5016227E89C3E00CC9F94 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5016127E89C3E00CC9F94 /* SettingViewController.swift */; };
 		8EC5016727E89D6C00CC9F94 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5016627E89D6C00CC9F94 /* TabBarViewController.swift */; };
+		8ED77D6627F4537900E66613 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ED77D6527F4537900E66613 /* UIView.swift */; };
 		9D0666B3CF63DC0E8B49C3F7 /* Pods_Covid_Info.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2319B6ADBA8DD6D706EAD6 /* Pods_Covid_Info.framework */; };
 		C5E0E77212E80F208C964482 /* Pods_Covid_InfoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C61F76F7ECD53881045C254B /* Pods_Covid_InfoTests.framework */; };
 /* End PBXBuildFile section */
@@ -114,6 +115,7 @@
 		8EC5015E27E89C2300CC9F94 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		8EC5016127E89C3E00CC9F94 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		8EC5016627E89D6C00CC9F94 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		8ED77D6527F4537900E66613 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		9DD3EA898A4F57C9572EBD5D /* Pods-Covid-InfoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-InfoTests.release.xcconfig"; path = "Target Support Files/Pods-Covid-InfoTests/Pods-Covid-InfoTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5B5D69B9F6EB9FD3FEDB1D6 /* Pods_Covid_Info_Covid_InfoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid_Info_Covid_InfoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16C4E23E2270511EFC9CC2B /* Pods-Covid-Info-Covid-InfoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-Info-Covid-InfoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Covid-Info-Covid-InfoUITests/Pods-Covid-Info-Covid-InfoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 		8E65650E27E8CFB300679DEA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8ED77D6427F4536B00E66613 /* Extension */,
 				8E65650F27E8CFC200679DEA /* Config.swift */,
 				8E65651127E8D05400679DEA /* Encodable.swift */,
 				8E66DEC227E9122F00F13BBD /* ParseXMLData.swift */,
@@ -486,6 +489,14 @@
 				8EC5016627E89D6C00CC9F94 /* TabBarViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8ED77D6427F4536B00E66613 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8ED77D6527F4537900E66613 /* UIView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -746,6 +757,7 @@
 				8EC5011227E893E600CC9F94 /* AppDelegate.swift in Sources */,
 				8EC5015427E89A7300CC9F94 /* DataViewController.swift in Sources */,
 				8E5CF6C127E9F85E0027D28A /* ChartView.swift in Sources */,
+				8ED77D6627F4537900E66613 /* UIView.swift in Sources */,
 				8E82D24127EA37E300ED54F9 /* SocialDistance.swift in Sources */,
 				8E65650D27E8CDB000679DEA /* CovidAPI.swift in Sources */,
 				8EC5016227E89C3E00CC9F94 /* SettingViewController.swift in Sources */,
