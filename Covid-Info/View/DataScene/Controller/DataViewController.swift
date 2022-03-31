@@ -39,12 +39,21 @@ class DataViewController: UIViewController {
             LoadingIndicator.hideLoading()
         }
         bindUI()
+        setUptableview()
         //addChartView()
     }
     
     func setUpUI(){
 
     }
+    
+    func setUptableview(){
+        tableView.delegate = self
+        tableView.dataSource = self
+        //tableView.register(<#T##UINib?#>, forCellReuseIdentifier: <#T##String#>)
+    }
+    
+    
     
     func bindUI(){
         self.viewModel.totalCovidPublisher
@@ -133,7 +142,19 @@ class DataViewController: UIViewController {
 
 }
 
+extension DataViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return self.viewModel
+    }
+}
 
+extension DataViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
+}
 
 
 
