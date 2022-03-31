@@ -21,9 +21,9 @@ class DataViewController: UIViewController {
     @IBOutlet weak var totalDtCount: UILabel!
     
     ///Local View
-    @IBOutlet weak var localCircleChartView: UIView!
-    
-    var indicatorView = UIActivityIndicatorView()
+    @IBOutlet weak var localCircleChartView: PieChartView!
+    @IBOutlet weak var tableView: UITableView!
+
     
     var viewModel = DataViewModel(covidUseCase: CovidUseCase(covidRepository: CovidRepository(networkRequest: DefaultRequestable())))
     
@@ -32,10 +32,10 @@ class DataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.bringSubviewToFront(self.indicatorView)
         LoadingIndicator.showLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            self.setChart(dataPoints: self.viewModel.chartData)
+            self.setBarChart(dataPoints: self.viewModel.chartData)
+            self.setCircleChart(dataPoints: self.viewModel.localTopFiveRank)
             LoadingIndicator.hideLoading()
         }
         bindUI()
@@ -56,10 +56,11 @@ class DataViewController: UIViewController {
                 self.totalDtCount.text = "\(entities?.TotalDeath ?? "")명"
             }
             .store(in: &self.cancellables)
+        
     }
     
     
-    func setChart(dataPoints: [(String, Int)]){
+    func setBarChart(dataPoints: [(String, Int)]){
         var dataEntries: [BarChartDataEntry] = []
         for i in 0..<dataPoints.count {
             let dataEntry = BarChartDataEntry(x: Double(i), y: Double(dataPoints[i].1))
@@ -82,6 +83,36 @@ class DataViewController: UIViewController {
         todayPsChartView.dragXEnabled = true
     }
     
+    func setCircleChart(dataPoints: [String: Double]){
+        let points: [String] = dataPoints.map { $0.key }
+        let values: [Double] = dataPoints.map { $0.value }
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<dataPoints.count {
+          let dataEntry = PieChartDataEntry(value: values[i], label: points[i], data:  points[i] as AnyObject)
+          dataEntries.append(dataEntry)
+        }
+        let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: "")
+        pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        pieChartData.setValueFormatter(formatter)
+        localCircleChartView.data = pieChartData
+    }
+    
+    private func colorsOfCharts(numbersOfColor: Int) -> [UIColor] {
+      var colors: [UIColor] = []
+      for _ in 0..<numbersOfColor {
+        let red = Double(arc4random_uniform(256))
+        let green = Double(arc4random_uniform(256))
+        let blue = Double(arc4random_uniform(256))
+        let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+        colors.append(color)
+      }
+        return colors
+    }
+    
 //    func addChartView(){
 //        let barChartView = ChartView(chartData: viewModel)
 //        let controller = UIHostingController(rootView: barChartView)
@@ -101,6 +132,8 @@ class DataViewController: UIViewController {
    
 
 }
+
+
 
 
 

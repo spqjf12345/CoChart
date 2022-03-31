@@ -14,10 +14,13 @@ class DataViewModel: ObservableObject {
     let covidUseCase: CovidUseCase
     
     var totalCovidPublisher: AnyPublisher<TotalCovid?, Never> { self.$totalCovid.eraseToAnyPublisher() }
-    
+    var localRankingPublisher: AnyPublisher<[String: Double], Never> { self.$localTopFiveRank.eraseToAnyPublisher() }
+        
     @Published var chartData: [(String, Int)] = []
+    @Published var localTopFiveRank: [String : Double] = [:]
     @Published var covidData: CovidResponse?
     @Published var totalCovid: TotalCovid? = nil
+    
     
     init(covidUseCase: CovidUseCase) {
         self.covidUseCase = covidUseCase
@@ -72,7 +75,6 @@ class DataViewModel: ObservableObject {
             chartData.append((dateString, cnt))
         }
         chartData = chartData.reversed()
-        print(chartData)
     }
     
     func getTotalData() {
@@ -82,11 +84,18 @@ class DataViewModel: ObservableObject {
                 case .failure(let error):
                     print("opps \(error)")
                 case .finished:
-                    print("finished ")
+                    self.getFiveRank()
                 }
             } receiveValue : { response in
                 print("res \(response)")
                 self.totalCovid = response
             }.store(in: &cancellables)
+    }
+    
+    func getFiveRank() {
+        if let totalCovid = totalCovid {
+            self.localTopFiveRank = [totalCovid.city1n : Double(totalCovid.city1p)!, totalCovid.city2n : Double(totalCovid.city2p)!, totalCovid.city3n : Double(totalCovid.city3p)!, totalCovid.city4n : Double(totalCovid.city4p)!, totalCovid.city5n : Double(totalCovid.city5p)!]
+        }
+        
     }
 }
