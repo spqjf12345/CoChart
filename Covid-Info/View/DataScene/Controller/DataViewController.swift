@@ -24,7 +24,6 @@ class DataViewController: UIViewController {
     @IBOutlet weak var localCircleChartView: PieChartView!
     @IBOutlet weak var tableView: UITableView!
 
-    
     var viewModel = DataViewModel(covidUseCase: CovidUseCase(covidRepository: CovidRepository(networkRequest: DefaultRequestable())))
     
     private var cancellables: Set<AnyCancellable> = []
@@ -50,7 +49,7 @@ class DataViewController: UIViewController {
     func setUptableview(){
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.register(<#T##UINib?#>, forCellReuseIdentifier: <#T##String#>)
+        tableView.register(LocalTableViewCell.self, forCellReuseIdentifier: LocalTableViewCell.identifier)
     }
     
     
@@ -144,13 +143,17 @@ class DataViewController: UIViewController {
 
 extension DataViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.viewModel
+        return self.viewModel.localCovidCount // except korea, 검열
     }
 }
 
 extension DataViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: LocalTableViewCell.identifier, for: indexPath) as? LocalTableViewCell else { return UITableViewCell() }
+        cell.title = self.viewModel.localCovid?.
+        cell.congigure()
+        cell.selectionStyle = .none
+        return cell
     }
     
     

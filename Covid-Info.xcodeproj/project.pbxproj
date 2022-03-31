@@ -29,6 +29,7 @@
 		8E82D23E27EA357500ED54F9 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E82D23D27EA357500ED54F9 /* InfoView.swift */; };
 		8E82D24127EA37E300ED54F9 /* SocialDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E82D24027EA37E300ED54F9 /* SocialDistance.swift */; };
 		8E9F70AF27F6178A00415037 /* LocalCovid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F70AE27F6178A00415037 /* LocalCovid.swift */; };
+		8E9F70B127F61B1B00415037 /* LocalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9F70B027F61B1B00415037 /* LocalTableViewCell.swift */; };
 		8EB5AEA727F33AE500F06B0B /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB5AEA627F33AE500F06B0B /* LoadingIndicator.swift */; };
 		8EC5011227E893E600CC9F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5011127E893E600CC9F94 /* AppDelegate.swift */; };
 		8EC5011427E893E600CC9F94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC5011327E893E600CC9F94 /* SceneDelegate.swift */; };
@@ -95,6 +96,7 @@
 		8E82D23D27EA357500ED54F9 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		8E82D24027EA37E300ED54F9 /* SocialDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialDistance.swift; sourceTree = "<group>"; };
 		8E9F70AE27F6178A00415037 /* LocalCovid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCovid.swift; sourceTree = "<group>"; };
+		8E9F70B027F61B1B00415037 /* LocalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalTableViewCell.swift; sourceTree = "<group>"; };
 		8EB5AEA627F33AE500F06B0B /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		8EC5010E27E893E600CC9F94 /* Covid-Info.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-Info.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EC5011127E893E600CC9F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 			children = (
 				8EC5014D27E89A3900CC9F94 /* Data.storyboard */,
 				8E5CF6C027E9F85E0027D28A /* ChartView.swift */,
+				8E9F70B027F61B1B00415037 /* LocalTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				8E5CF6C127E9F85E0027D28A /* ChartView.swift in Sources */,
 				8ED77D6627F4537900E66613 /* UIView.swift in Sources */,
 				8E82D24127EA37E300ED54F9 /* SocialDistance.swift in Sources */,
+				8E9F70B127F61B1B00415037 /* LocalTableViewCell.swift in Sources */,
 				8E65650D27E8CDB000679DEA /* CovidAPI.swift in Sources */,
 				8EC5016227E89C3E00CC9F94 /* SettingViewController.swift in Sources */,
 				8E6564F727E8AC2800679DEA /* DataViewModel.swift in Sources */,

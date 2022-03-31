@@ -10,4 +10,6 @@ import Combine
 
 protocol CovidRepositoryProtocol {
     func getCovid(request: CovidRequest) -> AnyPublisher<CovidResponse, NetworkError>
+    func getTotalCovid() -> AnyPublisher<TotalCovid, NetworkError>
+    func getLocalCovid() -> AnyPublisher<LocalCovid, NetworkError>
 }

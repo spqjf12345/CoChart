@@ -10,6 +10,27 @@ import Foundation
 
 
 class DataViewModel: ObservableObject {
+    
+    enum LocalAreaType: String {
+        case seoul = "서울"
+        case busan = "부산"
+        case daegu = "대구"
+        case incheon = "인천"
+        case gwangju = "광주"
+        case daejeon = "대전"
+        case ulsan = "울산"
+        case sejong = "세종"
+        case gyeonggi = "경기"
+        case gangwon = "강원"
+        case chungbuk = "충북"
+        case chungnam = "충남"
+        case jeonbuk = "전북"
+        case jeonnam = "전남"
+        case gyeongbuk = "경북"
+        case gyeongnam = "경남"
+        case jeju = "제주"
+    }
+    
     var cancellables = Set<AnyCancellable>()
     let covidUseCase: CovidUseCase
     
@@ -20,12 +41,14 @@ class DataViewModel: ObservableObject {
     @Published var localTopFiveRank: [String : Double] = [:]
     @Published var covidData: CovidResponse?
     @Published var totalCovid: TotalCovid? = nil
-    
+    @Published var localCovid: LocalCovid? = nil
+    var localCovidCount = 17
     
     init(covidUseCase: CovidUseCase) {
         self.covidUseCase = covidUseCase
         self.getCovid()
         self.getTotalData()
+        self.getLocalCovid()
     }
     
     func date() -> [String] {
@@ -87,7 +110,6 @@ class DataViewModel: ObservableObject {
                     self.getFiveRank()
                 }
             } receiveValue : { response in
-                print("res \(response)")
                 self.totalCovid = response
             }.store(in: &cancellables)
     }
@@ -97,5 +119,20 @@ class DataViewModel: ObservableObject {
             self.localTopFiveRank = [totalCovid.city1n : Double(totalCovid.city1p)!, totalCovid.city2n : Double(totalCovid.city2p)!, totalCovid.city3n : Double(totalCovid.city3p)!, totalCovid.city4n : Double(totalCovid.city4p)!, totalCovid.city5n : Double(totalCovid.city5p)!]
         }
         
+    }
+    
+    func getLocalCovid(){
+        covidUseCase.getLocalCovid()
+            .sink  { (completion) in
+                switch completion {
+                case .failure(let error):
+                    print("opps \(error)")
+                case .finished:
+                   print("finished")
+                }
+            } receiveValue : { response in
+                print("res \(response)")
+                self.localCovid = response
+            }.store(in: &cancellables)
     }
 }

@@ -17,7 +17,6 @@ final class DefaultRequestable: Requestable {
     
     func request(_ req: NetworkRequest) -> AnyPublisher<Data, NetworkError> {
         guard let urlRequest = req.urlRequest else {  return AnyPublisher(Fail<Data, NetworkError>(error: NetworkError.badURL("Invalid URL"))) }
-        print(urlRequest)
         return URLSession.shared.dataTaskPublisher(for: urlRequest)
             .tryMap { data, response -> Data in
                 guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {

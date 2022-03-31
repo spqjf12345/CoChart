@@ -39,4 +39,13 @@ class CovidRepository: CovidRepositoryProtocol {
         }.eraseToAnyPublisher()
     }
     
+    func getLocalCovid() -> AnyPublisher<LocalCovid, NetworkError> {
+        let request = CovidAPI.getLocalCovid
+        return self.networkRequest.request(request)
+        .decode(type: LocalCovid.self, decoder: JSONDecoder())
+        .mapError { error in
+            return NetworkError.invalidJSON(String(describing: error))
+        }.eraseToAnyPublisher()
+    }
+    
 }

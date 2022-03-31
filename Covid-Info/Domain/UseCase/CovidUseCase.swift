@@ -23,5 +23,11 @@ class CovidUseCase: CovidRepositoryProtocol {
         return covidRepository.getTotalCovid()
     }
     
+    func getLocalCovid() -> AnyPublisher<LocalCovid, NetworkError> {
+        return covidRepository.getLocalCovid()
+    }
+    
+    
+    
     
 }
