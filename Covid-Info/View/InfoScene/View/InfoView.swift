@@ -134,7 +134,6 @@ struct CategoruButton: View {
 }
 
 struct DetailCategoryView: View {
-    
     @Binding var category: Category
     @Binding var shown: Bool
     

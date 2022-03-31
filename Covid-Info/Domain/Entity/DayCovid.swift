@@ -52,4 +52,3 @@ struct ItemResponse: Codable {
     var stateTime: String
     var updateDt: String
 }
-

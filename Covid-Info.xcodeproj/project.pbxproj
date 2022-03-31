@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1B99678A3D23252449C979B5 /* Pods_Covid_Info_Covid_InfoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B5D69B9F6EB9FD3FEDB1D6 /* Pods_Covid_Info_Covid_InfoUITests.framework */; };
+		8E3D087527F5B9B800D40E83 /* TotalCovid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D087427F5B9B800D40E83 /* TotalCovid.swift */; };
 		8E5CF6C127E9F85E0027D28A /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5CF6C027E9F85E0027D28A /* ChartView.swift */; };
 		8E5CF6CD27E9FEB00027D28A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8E5CF6CC27E9FEB00027D28A /* SwiftUICharts */; };
 		8E6564F727E8AC2800679DEA /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6564F627E8AC2800679DEA /* DataViewModel.swift */; };
-		8E65650127E8C54200679DEA /* Covid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650027E8C54200679DEA /* Covid.swift */; };
+		8E65650127E8C54200679DEA /* DayCovid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650027E8C54200679DEA /* DayCovid.swift */; };
 		8E65650427E8C8BF00679DEA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E65650327E8C8BF00679DEA /* Colors.xcassets */; };
 		8E65650627E8CAA600679DEA /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650527E8CAA600679DEA /* Requestable.swift */; };
 		8E65650827E8CB1100679DEA /* DefaultRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E65650727E8CB1100679DEA /* DefaultRequestable.swift */; };
@@ -73,9 +74,10 @@
 		0DDB496737353E2323313DD0 /* Pods-Covid-Info-Covid-InfoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-Info-Covid-InfoUITests.release.xcconfig"; path = "Target Support Files/Pods-Covid-Info-Covid-InfoUITests/Pods-Covid-Info-Covid-InfoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1BFC7F82DF02B94117064D42 /* Pods-Covid-Info.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-Info.release.xcconfig"; path = "Target Support Files/Pods-Covid-Info/Pods-Covid-Info.release.xcconfig"; sourceTree = "<group>"; };
 		3E2319B6ADBA8DD6D706EAD6 /* Pods_Covid_Info.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid_Info.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E3D087427F5B9B800D40E83 /* TotalCovid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCovid.swift; sourceTree = "<group>"; };
 		8E5CF6C027E9F85E0027D28A /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		8E6564F627E8AC2800679DEA /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
-		8E65650027E8C54200679DEA /* Covid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid.swift; sourceTree = "<group>"; };
+		8E65650027E8C54200679DEA /* DayCovid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCovid.swift; sourceTree = "<group>"; };
 		8E65650327E8C8BF00679DEA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E65650527E8CAA600679DEA /* Requestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		8E65650727E8CB1100679DEA /* DefaultRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRequestable.swift; sourceTree = "<group>"; };
@@ -189,8 +191,9 @@
 		8E6564FA27E8C46B00679DEA /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				8E65650027E8C54200679DEA /* Covid.swift */,
+				8E65650027E8C54200679DEA /* DayCovid.swift */,
 				8E82D24027EA37E300ED54F9 /* SocialDistance.swift */,
+				8E3D087427F5B9B800D40E83 /* TotalCovid.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				8EC5011627E893E600CC9F94 /* ViewController.swift in Sources */,
 				8E65650827E8CB1100679DEA /* DefaultRequestable.swift in Sources */,
 				8E7C33CF27E8E7DE003EDC65 /* CovidRepositoryProtocol.swift in Sources */,
+				8E3D087527F5B9B800D40E83 /* TotalCovid.swift in Sources */,
 				8EC5011227E893E600CC9F94 /* AppDelegate.swift in Sources */,
 				8EC5015427E89A7300CC9F94 /* DataViewController.swift in Sources */,
 				8E5CF6C127E9F85E0027D28A /* ChartView.swift in Sources */,
@@ -770,7 +774,7 @@
 				8EC5015627E89A8A00CC9F94 /* InfoViewController.swift in Sources */,
 				8E82D23E27EA357500ED54F9 /* InfoView.swift in Sources */,
 				8EB5AEA727F33AE500F06B0B /* LoadingIndicator.swift in Sources */,
-				8E65650127E8C54200679DEA /* Covid.swift in Sources */,
+				8E65650127E8C54200679DEA /* DayCovid.swift in Sources */,
 				8E65650627E8CAA600679DEA /* Requestable.swift in Sources */,
 				8E65651027E8CFC200679DEA /* Config.swift in Sources */,
 				8E65651227E8D05400679DEA /* Encodable.swift in Sources */,
