@@ -9,20 +9,26 @@ import UIKit
 import Combine
 import SwiftUI
 import SnapKit
-import MapKit
 import Charts
 
 class DataViewController: UIViewController {
 
-    @IBOutlet weak var chartView: BarChartView!
+    @IBOutlet weak var todayPsChartView: BarChartView!
+    
+    ///Total View
+    @IBOutlet weak var todayPsCount: UILabel!
+    @IBOutlet weak var totalPsCount: UILabel!
+    @IBOutlet weak var totalDtCount: UILabel!
+    
+    ///Local View
+    @IBOutlet weak var localCircleChartView: UIView!
+    
     var indicatorView = UIActivityIndicatorView()
     
     var viewModel = DataViewModel(covidUseCase: CovidUseCase(covidRepository: CovidRepository(networkRequest: DefaultRequestable())))
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        viewModel.getCovid()
-    }
+    private var cancellables: Set<AnyCancellable> = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +38,24 @@ class DataViewController: UIViewController {
             self.setChart(dataPoints: self.viewModel.chartData)
             LoadingIndicator.hideLoading()
         }
+        bindUI()
         //addChartView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
     }
     
     func setUpUI(){
 
+    }
+    
+    func bindUI(){
+        self.viewModel.totalCovidPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] entities in
+                guard let self = self else { return }
+                self.todayPsCount.text = "\(entities?.TotalCaseBefore ?? "")명"
+                self.totalPsCount.text = "\(entities?.TotalCase ?? "")명"
+                self.totalDtCount.text = "\(entities?.TotalDeath ?? "")명"
+            }
+            .store(in: &self.cancellables)
     }
     
     
@@ -54,18 +68,18 @@ class DataViewController: UIViewController {
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "")
         chartDataSet.colors = [.darkGray]
         let chartData = BarChartData(dataSet: chartDataSet)
-        chartView.data = chartData
+        todayPsChartView.data = chartData
         //chartDataSet.highlightEnabled = false
-        chartView.doubleTapToZoomEnabled = false
-        chartView.xAxis.labelPosition = .bottom
-        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints.map{ $0.0 })
-        chartView.rightAxis.enabled = false
+        todayPsChartView.doubleTapToZoomEnabled = false
+        todayPsChartView.xAxis.labelPosition = .bottom
+        todayPsChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints.map{ $0.0 })
+        todayPsChartView.rightAxis.enabled = false
         //chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        chartView.drawGridBackgroundEnabled = false
-        chartView.xAxis.drawGridLinesEnabled = false
-        chartView.setVisibleXRangeMaximum(20)
-        chartView.xAxis.setLabelCount(dataPoints.count, force: false)
-        chartView.dragXEnabled = true
+        todayPsChartView.drawGridBackgroundEnabled = false
+        todayPsChartView.xAxis.drawGridLinesEnabled = false
+        todayPsChartView.setVisibleXRangeMaximum(20)
+        todayPsChartView.xAxis.setLabelCount(dataPoints.count, force: false)
+        todayPsChartView.dragXEnabled = true
     }
     
 //    func addChartView(){

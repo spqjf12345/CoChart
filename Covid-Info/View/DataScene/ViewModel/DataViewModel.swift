@@ -12,12 +12,17 @@ import Foundation
 class DataViewModel: ObservableObject {
     var cancellables = Set<AnyCancellable>()
     let covidUseCase: CovidUseCase
-    @Published var chartData: [(String, Int)] = []
     
+    var totalCovidPublisher: AnyPublisher<TotalCovid?, Never> { self.$totalCovid.eraseToAnyPublisher() }
+    
+    @Published var chartData: [(String, Int)] = []
     @Published var covidData: CovidResponse?
+    @Published var totalCovid: TotalCovid? = nil
     
     init(covidUseCase: CovidUseCase) {
         self.covidUseCase = covidUseCase
+        self.getCovid()
+        self.getTotalData()
     }
     
     func date() -> [String] {
@@ -68,5 +73,20 @@ class DataViewModel: ObservableObject {
         }
         chartData = chartData.reversed()
         print(chartData)
+    }
+    
+    func getTotalData() {
+        covidUseCase.getTotalCovid()
+            .sink  { (completion) in
+                switch completion {
+                case .failure(let error):
+                    print("opps \(error)")
+                case .finished:
+                    print("finished ")
+                }
+            } receiveValue : { response in
+                print("res \(response)")
+                self.totalCovid = response
+            }.store(in: &cancellables)
     }
 }

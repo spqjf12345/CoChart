@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ToTalCovidRequest: Codable {
+struct TotalCovid: Codable {
     var resultCode: String
     var TotalCase: String
     var TotalRecovered: String

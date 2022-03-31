@@ -11,5 +11,4 @@ import Combine
 protocol Requestable {
     func request(_ req: NetworkRequest) -> AnyPublisher<Data, NetworkError>
     func request<T: Codable> (_ req: NetworkRequest) -> AnyPublisher<T, NetworkError>
-    
 }

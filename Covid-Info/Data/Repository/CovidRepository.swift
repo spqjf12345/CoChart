@@ -29,4 +29,14 @@ class CovidRepository: CovidRepositoryProtocol {
         }.eraseToAnyPublisher()
         return response
     }
+    
+    func getTotalCovid() -> AnyPublisher<TotalCovid, NetworkError> {
+        let request = CovidAPI.getTotalInfo
+        return self.networkRequest.request(request)
+        .decode(type: TotalCovid.self, decoder: JSONDecoder())
+        .mapError { error in
+            return NetworkError.invalidJSON(String(describing: error))
+        }.eraseToAnyPublisher()
+    }
+    
 }
