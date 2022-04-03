@@ -15,6 +15,10 @@ class DataViewController: UIViewController {
 
     @IBOutlet weak var todayPsChartView: BarChartView!
     
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     ///Total View
     @IBOutlet weak var todayPsCount: UILabel!
     @IBOutlet weak var totalPsCount: UILabel!
@@ -22,8 +26,8 @@ class DataViewController: UIViewController {
     
     ///Local View
     @IBOutlet weak var localCircleChartView: PieChartView!
+    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var detailLocalView: UIView!
-//    @IBOutlet weak var tableView: UITableView!
 
     var viewModel = DataViewModel(covidUseCase: CovidUseCase(covidRepository: CovidRepository(networkRequest: DefaultRequestable())))
     
@@ -39,11 +43,27 @@ class DataViewController: UIViewController {
             LoadingIndicator.hideLoading()
         }
         bindUI()
+        setUp()
         addDetailLocalView()
     }
     
-    func setUpUI(){
-
+    func setUp(){
+        leftButton.tag = 0
+        rightButton.tag = 1
+        leftButton.addTarget(self, action: #selector(didSelectButton), for: .touchUpInside)
+        rightButton.addTarget(self, action: #selector(didSelectButton), for: .touchUpInside)
+    }
+    
+    @objc func didSelectButton(sender: UIButton){
+        
+        switch sender.tag {
+        case 0:
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        case 1:
+            scrollView.setContentOffset(CGPoint(x: scrollView.contentSize.width / 2 - 20, y: 0), animated: true)
+        default:
+            print("noting")
+        }
     }
     
     func addDetailLocalView() {
@@ -64,13 +84,13 @@ class DataViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] entities in
                 guard let self = self else { return }
-                self.todayPsCount.text = "\(entities?.TotalCaseBefore ?? "")명"
+                self.todayPsCount.text = "\(self.viewModel.changeCommaText(text: entities?.TotalCaseBefore) ?? "")명"
                 self.totalPsCount.text = "\(entities?.TotalCase ?? "")명"
                 self.totalDtCount.text = "\(entities?.TotalDeath ?? "")명"
             }
             .store(in: &self.cancellables)
-        
     }
+ 
     
     
     func setBarChart(dataPoints: [(String, Int)]){
@@ -88,12 +108,12 @@ class DataViewController: UIViewController {
         todayPsChartView.xAxis.labelPosition = .bottom
         todayPsChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints.map{ $0.0 })
         todayPsChartView.rightAxis.enabled = false
-        //chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        todayPsChartView.setVisibleXRangeMaximum(30)
+        todayPsChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         todayPsChartView.drawGridBackgroundEnabled = false
         todayPsChartView.xAxis.drawGridLinesEnabled = false
-        //todayPsChartView.setVisibleXRangeMaximum(10)
         todayPsChartView.xAxis.setLabelCount(dataPoints.count, force: false)
-        todayPsChartView.dragXEnabled = true
+        todayPsChartView.dragXEnabled = false
     }
     
     func setCircleChart(dataPoints: [String: Double]){

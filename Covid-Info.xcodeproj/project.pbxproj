@@ -10,6 +10,7 @@
 		1B99678A3D23252449C979B5 /* Pods_Covid_Info_Covid_InfoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B5D69B9F6EB9FD3FEDB1D6 /* Pods_Covid_Info_Covid_InfoUITests.framework */; };
 		8E3D087527F5B9B800D40E83 /* TotalCovid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3D087427F5B9B800D40E83 /* TotalCovid.swift */; };
 		8E3DBF3527F9A58300C1C6B3 /* DetailLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3DBF3427F9A58300C1C6B3 /* DetailLocalView.swift */; };
+		8E51716B27F9C507007E67BC /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E51716A27F9C507007E67BC /* NavigationBar.swift */; };
 		8E5CF6C127E9F85E0027D28A /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5CF6C027E9F85E0027D28A /* ChartView.swift */; };
 		8E5CF6CD27E9FEB00027D28A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 8E5CF6CC27E9FEB00027D28A /* SwiftUICharts */; };
 		8E6564F727E8AC2800679DEA /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E6564F627E8AC2800679DEA /* DataViewModel.swift */; };
@@ -78,6 +79,7 @@
 		3E2319B6ADBA8DD6D706EAD6 /* Pods_Covid_Info.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid_Info.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E3D087427F5B9B800D40E83 /* TotalCovid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCovid.swift; sourceTree = "<group>"; };
 		8E3DBF3427F9A58300C1C6B3 /* DetailLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLocalView.swift; sourceTree = "<group>"; };
+		8E51716A27F9C507007E67BC /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		8E5CF6C027E9F85E0027D28A /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		8E6564F627E8AC2800679DEA /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		8E65650027E8C54200679DEA /* DayCovid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCovid.swift; sourceTree = "<group>"; };
@@ -496,6 +498,7 @@
 				8EC5014627E899C000CC9F94 /* CommunityScene */,
 				8EC5014727E899CE00CC9F94 /* SettingScene */,
 				8EC5016627E89D6C00CC9F94 /* TabBarViewController.swift */,
+				8E51716A27F9C507007E67BC /* NavigationBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				8E65650627E8CAA600679DEA /* Requestable.swift in Sources */,
 				8E65651027E8CFC200679DEA /* Config.swift in Sources */,
 				8E65651227E8D05400679DEA /* Encodable.swift in Sources */,
+				8E51716B27F9C507007E67BC /* NavigationBar.swift in Sources */,
 				8EC5011C27E893E600CC9F94 /* Covid_Info.xcdatamodeld in Sources */,
 				8EC5015F27E89C2300CC9F94 /* CommunityViewController.swift in Sources */,
 				8E66DEC327E9122F00F13BBD /* ParseXMLData.swift in Sources */,

@@ -11,7 +11,8 @@ import Foundation
 
 class DataViewModel: ObservableObject {
     
-    enum LocalAreaType: String, CaseIterable {
+    enum LocalAreaType: String, CaseIterable, Identifiable {
+        case all = "All"
         case seoul = "서울"
         case busan = "부산"
         case daegu = "대구"
@@ -29,6 +30,8 @@ class DataViewModel: ObservableObject {
         case gyeongbuk = "경북"
         case gyeongnam = "경남"
         case jeju = "제주"
+        
+        var id: LocalAreaType { self }
     }
     
     var cancellables = Set<AnyCancellable>()
@@ -54,13 +57,10 @@ class DataViewModel: ObservableObject {
     }
     
     func date() -> [String] {
-        print("dateFunction")
-        print(Date())
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
         let today = dateFormatter.string(from: Date())
         let firstDay = dateFormatter.string(from: Calendar.current.date(byAdding: .day, value: -30, to: Date())!)
-        print("\(today) \(firstDay)")
         return [today, firstDay]
     }
     
@@ -130,7 +130,6 @@ class DataViewModel: ObservableObject {
                 case .failure(let error):
                     print("opps \(error)")
                 case .finished:
-//                    print("finished")
                     self.addDetail()
                 }
             } receiveValue : { response in
@@ -150,9 +149,21 @@ class DataViewModel: ObservableObject {
             let detailStr = "- 총 사망자 : \(i.death)\n- 총 확진자 : \(i.totalCase)\n- 신규 확진자 : \(i.newCase)"
             detailArea.append(DetailLocalCovid(name: i.countryName, icon: "\(idx+1).circle", items: [DetailLocalCovid(name: detailStr, icon: "aa", items: nil)]))
         }
-
-       
-        
+    }
+    
+    
+    func changeCommaText(text: String?) -> String? {
+        if let text = text {
+            var str = text
+            for i in 0..<text.count{
+                if(i % 3 == 0){
+                    str.insert(",", at: text.index(text.endIndex, offsetBy: -i))
+                }
+            }
+            str.removeLast()
+            return str
+        }
+       return nil
     }
     
 

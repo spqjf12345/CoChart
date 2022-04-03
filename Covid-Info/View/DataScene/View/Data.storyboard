@@ -3,11 +3,9 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9AP-If-KeQ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
                                 <color key="backgroundColor" red="0.039829656040000001" green="0.083748560789999996" blue="0.2249036847" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="dDG-PF-jdu"/>
+                                    <constraint firstAttribute="height" constant="140" id="nXU-mE-hLB"/>
                                 </constraints>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,8 +33,8 @@
                                     <navigationItem title="CoChart" id="Mrs-Jp-lnh"/>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7q-4x-0ZC">
-                                <rect key="frame" x="0.0" y="120" width="414" height="693"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7q-4x-0ZC">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeX-UY-OBh" userLabel="FramView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1702"/>
@@ -54,14 +52,17 @@
                                                         <rect key="frame" x="28" y="54" width="358" height="206"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFT-6I-24X" userLabel="ChartView" customClass="BarChartView" customModule="Charts">
-                                                                <rect key="frame" x="0.0" y="0.0" width="758" height="206"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="608" height="206"/>
+                                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                                </accessibility>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="vFT-6I-24X" firstAttribute="trailing" secondItem="HiY-Um-fOH" secondAttribute="trailing" id="GtS-iI-hoy"/>
                                                             <constraint firstItem="vFT-6I-24X" firstAttribute="top" secondItem="HiY-Um-fOH" secondAttribute="top" id="M6z-gi-pk3"/>
-                                                            <constraint firstItem="vFT-6I-24X" firstAttribute="width" secondItem="jBM-wP-azy" secondAttribute="width" priority="250" constant="400" id="gKi-Dz-03R"/>
+                                                            <constraint firstItem="vFT-6I-24X" firstAttribute="width" secondItem="jBM-wP-azy" secondAttribute="width" priority="250" constant="250" id="gKi-Dz-03R"/>
                                                             <constraint firstItem="vFT-6I-24X" firstAttribute="leading" secondItem="HiY-Um-fOH" secondAttribute="leading" id="swl-qc-c97"/>
                                                             <constraint firstItem="vFT-6I-24X" firstAttribute="bottom" secondItem="HiY-Um-fOH" secondAttribute="bottom" id="vt7-x6-6Rb"/>
                                                             <constraint firstItem="vFT-6I-24X" firstAttribute="height" secondItem="jBM-wP-azy" secondAttribute="height" id="yuX-hW-Oc3"/>
@@ -206,26 +207,6 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Rx-eb-JQS" userLabel="detailLocalView">
                                                                 <rect key="frame" x="0.0" y="278" width="414" height="900"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNC-Iz-9uT">
-                                                                        <rect key="frame" x="352" y="15" width="47" height="19"/>
-                                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
-                                                                        <menu key="menu" id="BKw-tF-93S">
-                                                                            <children>
-                                                                                <command title="Item 1" id="92o-rC-ZhS"/>
-                                                                                <command title="Item 2" id="i2X-IC-swI"/>
-                                                                            </children>
-                                                                        </menu>
-                                                                        <state key="normal" title="필터">
-                                                                            <color key="titleColor" name="Main-navy"/>
-                                                                            <imageReference key="image" image="slider.horizontal.3" catalog="system" renderingMode="hierarchical-single">
-                                                                                <hierarchicalColors>
-                                                                                    <color name="Main-navy"/>
-                                                                                    <color systemColor="secondaryLabelColor"/>
-                                                                                    <color systemColor="tertiaryLabelColor"/>
-                                                                                </hierarchicalColors>
-                                                                            </imageReference>
-                                                                        </state>
-                                                                    </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지역별 현황" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taY-kk-f58">
                                                                         <rect key="frame" x="20" y="20" width="92" height="24"/>
                                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
@@ -243,8 +224,6 @@
                                                                     <constraint firstItem="U24-Pj-GdU" firstAttribute="leading" secondItem="8Rx-eb-JQS" secondAttribute="leading" constant="10" id="CPt-wX-OaL"/>
                                                                     <constraint firstItem="taY-kk-f58" firstAttribute="leading" secondItem="8Rx-eb-JQS" secondAttribute="leading" constant="20" id="Dpf-td-hLg"/>
                                                                     <constraint firstAttribute="height" constant="900" id="EBX-rf-PE9"/>
-                                                                    <constraint firstItem="WNC-Iz-9uT" firstAttribute="top" secondItem="8Rx-eb-JQS" secondAttribute="top" constant="15" id="Ntv-Vc-lYE"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="WNC-Iz-9uT" secondAttribute="trailing" constant="15" id="VNb-zW-kOd"/>
                                                                     <constraint firstAttribute="bottom" secondItem="U24-Pj-GdU" secondAttribute="bottom" constant="10" id="dYz-xc-yNs"/>
                                                                     <constraint firstAttribute="trailing" secondItem="U24-Pj-GdU" secondAttribute="trailing" constant="10" id="f5s-V0-goA"/>
                                                                     <constraint firstItem="taY-kk-f58" firstAttribute="top" secondItem="8Rx-eb-JQS" secondAttribute="top" constant="20" id="faa-rp-FnR"/>
@@ -309,7 +288,10 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="detailLocalView" destination="U24-Pj-GdU" id="n0q-6W-lKS"/>
+                        <outlet property="leftButton" destination="Qf1-NB-Tu4" id="rRK-FG-m5Y"/>
                         <outlet property="localCircleChartView" destination="Sh0-Ba-Set" id="Dhz-Qe-id2"/>
+                        <outlet property="rightButton" destination="fmw-gs-Cxh" id="iXA-aO-bVK"/>
+                        <outlet property="scrollView" destination="csT-lz-Dgq" id="PRT-4T-BB8"/>
                         <outlet property="todayPsChartView" destination="vFT-6I-24X" id="r2b-3U-12B"/>
                         <outlet property="todayPsCount" destination="ZbU-6v-l4p" id="Mal-Sd-9m9"/>
                         <outlet property="totalDtCount" destination="Bpl-9t-vX7" id="wBm-of-o0n"/>
@@ -325,21 +307,17 @@
         <image name="chart.bar.doc.horizontal" catalog="system" width="115" height="128"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <namedColor name="Main-navy">
-            <color red="0.096000000834465027" green="0.14900000393390656" blue="0.37700000405311584" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.039215686274509803" green="0.082352941176470587" blue="0.22352941176470589" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="tertiaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

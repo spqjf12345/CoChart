@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,7 +35,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMc-0l-Wh3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="399" y="-41"/>
+            <point key="canvasLocation" x="442" y="-1"/>
         </scene>
         <!--SettingViewController-->
         <scene sceneID="13I-T4-cvI">
@@ -56,14 +55,11 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="reO-NC-KhU">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" name="Main-navy"/>
                         <color key="selectedImageTintColor" red="0.039829656040000001" green="0.083748560789999996" blue="0.2249036847" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="xax-cg-ICJ" kind="relationship" relationship="viewControllers" id="P9Y-Mx-uTA"/>
                         <segue destination="2Zp-8F-IYM" kind="relationship" relationship="viewControllers" id="SKh-jC-sfW"/>
-                        <segue destination="bd1-K2-IXF" kind="relationship" relationship="viewControllers" id="NgS-QX-heZ"/>
-                        <segue destination="0DI-5Z-18o" kind="relationship" relationship="viewControllers" id="Yev-YY-UXT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2H-ZS-bFJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -71,9 +67,4 @@
             <point key="canvasLocation" x="-268" y="55"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="Main-navy">
-            <color red="0.096000000834465027" green="0.14900000393390656" blue="0.37700000405311584" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-    </resources>
 </document>

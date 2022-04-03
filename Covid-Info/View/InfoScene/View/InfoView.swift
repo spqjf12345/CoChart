@@ -31,7 +31,8 @@ struct InfoView: View {
                     CategoryView(shown: $shown, oneCategory: $category, category: info.category)
         
                 }
-            }.padding().navigationBarTitle("CoChart", displayMode: .automatic)
+            }.padding().navigationBarTitle("CoChart", displayMode: .large)
+                .navigationBarColor(UIColor(Color("Main-navy")))
         
         }.popupNavigationView(show: $shown, content: {
             DetailCategoryView(category: $category, shown: $shown)
@@ -46,7 +47,7 @@ struct InfoTitleView: View {
     var endDate: String = ""
     var body: some View {
         Text("거리두기 방침 \(date(date: Date())) 기준").font(.system(size: 20, weight: .semibold, design: .default))
-        Text("* 시행 일자 <\(startDate) ~ \(endDate)>").font(.system(size: 15, weight: .light, design: .default)).foregroundColor(.gray)
+        Text("* 시행 일자 <\(startDate) ~ \(endDate)>").font(.system(size: 15, weight: .light, design: .default)).foregroundColor(Color("Main-navy"))
     }
     
     func date(date: Date) -> String {
@@ -68,7 +69,8 @@ struct CenterView: View {
                        Divider()
                    }
                }
-        }.background(Color.teal) .cornerRadius(15)
+        }.background(Color("100"))
+        .cornerRadius(15)
     }
 }
 
@@ -77,18 +79,20 @@ struct CategoryView: View {
     @Binding var oneCategory: Category
     
     var category: [Category]
-    let layout = [GridItem(.adaptive(minimum: 80))]
+    //var layout = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
+    var layout = [GridItem(.adaptive(minimum: 100))]
     var body: some View {
         VStack(alignment: .leading, spacing: 2){
             Text("* 카테고리").font(.system(size: 18, weight: .semibold, design: .default)).padding([.top, .leading])
             
-            LazyVGrid(columns: layout, spacing: 20) {
+            LazyVGrid(columns: layout, spacing: 2) {
                 ForEach(category, id: \.id) { items in
                     let buttonStr = items.place.joined(separator: "/ ")
                     CategoruButton(shown: $shown, category: $oneCategory, total: category, name: buttonStr, tag: items.id)
                 }
             }
-        }.background(Color.green).cornerRadius(15)
+        }.background(Color("100"))
+        .cornerRadius(15)
         
     }
 }
@@ -97,7 +101,9 @@ struct CenterViewRow: View {
     var summary: Summary
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(summary.title).font(.system(size: 16, weight: .semibold, design: .default)).padding()
+            Text(summary.title).font(.system(size: 16, weight: .semibold, design: .default))
+                .background(Color("System Yellow 2"))
+                .padding()
             ForEach(summary.detail, id: \.self) { detail in
                 Text(detail).font(.system(size: 14))
             }.padding([.leading, .trailing])
@@ -120,15 +126,12 @@ struct CategoruButton: View {
             }
         }) {
             Text(name)
+                .frame(minWidth: 80, maxWidth: .infinity, minHeight: 80)
+                .background(Color("200"))
+                .cornerRadius(8)
+                .foregroundColor(Color("Main-navy"))
                 .padding()
-                .background(.white)
-                .cornerRadius(40)
-                .foregroundColor(.purple)
-                .font(.system(size: 13))
-                .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.purple, lineWidth: 5)
-                    )
+                .font(.system(size: 14, weight: .semibold, design: .default))
         }
     }
 }
@@ -145,8 +148,8 @@ struct DetailCategoryView: View {
                 Spacer()
                 Button(action: {
                     shown.toggle()
-                }){ Image(systemName: "xmark.app").foregroundColor(.black) }
-            }.background(Color.blue)
+                }){ Image(systemName: "xmark.app").foregroundColor(Color("Main-navy")) }
+            }
             Spacer()
             Text("시간 제한").font(.system(size: 25, weight: .bold, design: .default))
             Text("- \(category.operatingTime)").font(.system(size: 15)).fixedSize(horizontal: false, vertical: true)
@@ -158,6 +161,7 @@ struct DetailCategoryView: View {
             Text("- \(category.other)").font(.system(size: 15)).fixedSize(horizontal: false, vertical: true)
             
        }.padding()
+        .background(Color("System Yellow 3"))
     }
 }
 
