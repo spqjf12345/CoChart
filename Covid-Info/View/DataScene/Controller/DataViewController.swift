@@ -22,7 +22,8 @@ class DataViewController: UIViewController {
     
     ///Local View
     @IBOutlet weak var localCircleChartView: PieChartView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var detailLocalView: UIView!
+//    @IBOutlet weak var tableView: UITableView!
 
     var viewModel = DataViewModel(covidUseCase: CovidUseCase(covidRepository: CovidRepository(networkRequest: DefaultRequestable())))
     
@@ -38,7 +39,7 @@ class DataViewController: UIViewController {
             LoadingIndicator.hideLoading()
         }
         bindUI()
-        setUptableview()
+        addDetailLocalView()
         //addChartView()
     }
     
@@ -46,13 +47,18 @@ class DataViewController: UIViewController {
 
     }
     
-    func setUptableview(){
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(LocalTableViewCell.self, forCellReuseIdentifier: LocalTableViewCell.identifier)
+    func addDetailLocalView() {
+        let localView = DetailLocalView()
+        let controller = UIHostingController(rootView: localView)
+        self.addChild(controller)
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        detailLocalView.addSubview(controller.view)
+
+        controller.didMove(toParent: self)
+        controller.view.snp.makeConstraints { make in
+            make.top.trailing.bottom.leading.equalTo(detailLocalView)
+        }
     }
-    
-    
     
     func bindUI(){
         self.viewModel.totalCovidPublisher
@@ -86,7 +92,7 @@ class DataViewController: UIViewController {
         //chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         todayPsChartView.drawGridBackgroundEnabled = false
         todayPsChartView.xAxis.drawGridLinesEnabled = false
-        todayPsChartView.setVisibleXRangeMaximum(20)
+        //todayPsChartView.setVisibleXRangeMaximum(10)
         todayPsChartView.xAxis.setLabelCount(dataPoints.count, force: false)
         todayPsChartView.dragXEnabled = true
     }
@@ -120,45 +126,5 @@ class DataViewController: UIViewController {
       }
         return colors
     }
-    
-//    func addChartView(){
-//        let barChartView = ChartView(chartData: viewModel)
-//        let controller = UIHostingController(rootView: barChartView)
-//        self.addChild(controller)
-//        controller.view.translatesAutoresizingMaskIntoConstraints = false
-//        chartView.addSubview(controller.view)
-//
-//        controller.didMove(toParent: self)
-//        controller.view.snp.makeConstraints { make in
-//            make.top.equalTo(chartView.snp.top).offset(100)
-//            make.leading.equalTo(chartView.snp.leading)
-//            make.trailing.equalTo(chartView.snp.trailing)
-//            make.bottom.equalTo(chartView.snp.bottom).offset(-100)
-//        }
-//    }
-    
-   
 
 }
-
-extension DataViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.localCovidCount // except korea, 검열
-    }
-}
-
-extension DataViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: LocalTableViewCell.identifier, for: indexPath) as? LocalTableViewCell else { return UITableViewCell() }
-        cell.title = self.viewModel.localCovid?.
-        cell.congigure()
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    
-}
-
-
-
-

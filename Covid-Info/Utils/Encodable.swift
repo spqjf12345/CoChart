@@ -15,8 +15,8 @@ extension Encodable {
     subscript(key: String) -> Any? {
         return dictionary[key]
     }
-    var dictionary: [String: String] {
-        return (try? JSONSerialization.jsonObject(with: JSON.encoder.encode(self))) as? [String: String] ?? [:]
+    var dictionary: [String: Any] {
+        return (try? JSONSerialization.jsonObject(with: JSON.encoder.encode(self))) as? [String: Any] ?? [:]
     }
 }
 

@@ -11,7 +11,7 @@ import Foundation
 
 class DataViewModel: ObservableObject {
     
-    enum LocalAreaType: String {
+    enum LocalAreaType: String, CaseIterable {
         case seoul = "서울"
         case busan = "부산"
         case daegu = "대구"
@@ -31,6 +31,11 @@ class DataViewModel: ObservableObject {
         case jeju = "제주"
     }
     
+    struct LocalAreaCell {
+        var opened = Bool()
+        var data: [String: Any]
+    }
+    
     var cancellables = Set<AnyCancellable>()
     let covidUseCase: CovidUseCase
     
@@ -42,6 +47,8 @@ class DataViewModel: ObservableObject {
     @Published var covidData: CovidResponse?
     @Published var totalCovid: TotalCovid? = nil
     @Published var localCovid: LocalCovid? = nil
+    
+    var localArea: [LocalAreaCell] = []
     var localCovidCount = 17
     
     init(covidUseCase: CovidUseCase) {
@@ -49,6 +56,7 @@ class DataViewModel: ObservableObject {
         self.getCovid()
         self.getTotalData()
         self.getLocalCovid()
+       //self.localAreaCell()
     }
     
     func date() -> [String] {
@@ -128,11 +136,20 @@ class DataViewModel: ObservableObject {
                 case .failure(let error):
                     print("opps \(error)")
                 case .finished:
-                   print("finished")
+                    self.localAreaCell()
                 }
             } receiveValue : { response in
                 print("res \(response)")
                 self.localCovid = response
             }.store(in: &cancellables)
+    }
+    
+    func localAreaCell() {
+        for i in LocalAreaType.allCases {
+            if(localCovid.dictionary.keys.contains("\(i)")){
+                let area = localCovid.dictionary.filter { $0.key == "\(i)"}
+                localArea.append(LocalAreaCell(opened: false, data: area))
+            }
+        }
     }
 }

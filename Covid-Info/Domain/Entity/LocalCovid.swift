@@ -33,11 +33,10 @@ struct LocalCovid: Codable {
 
 struct LocalArea: Codable {
     var countryName: String
-    var newCase: String
-    var totalCase: String
-    var recovered: String
     var death: String
-    var percentage: String
-    var newCcase: String
+    var newCase: String
     var newFcase: String
+    var percentage: String
+    var recovered: String
+    var totalCase: String
 }
