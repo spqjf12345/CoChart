@@ -9,8 +9,20 @@ import SwiftUI
 
 struct DetailLocalView: View {
     
+    @EnvironmentObject var viewModel: DataViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).background(Color.red)
+        
+        List(viewModel.detailArea, id: \.id, children: \.items) { area in
+            if area.items != nil {
+                Label(area.name, systemImage: "quote.bubble")
+            }else {
+                Text(area.name)
+            }
+        }.onAppear() {
+            UITableView.appearance().backgroundColor = UIColor.systemGray5
+            UITableViewCell.appearance().backgroundColor = UIColor.systemGray5
+        }
     }
 }
 

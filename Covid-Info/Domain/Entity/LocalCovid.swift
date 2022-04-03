@@ -40,3 +40,31 @@ struct LocalArea: Codable {
     var recovered: String
     var totalCase: String
 }
+
+struct DetailLocalCovid: Identifiable {
+    let id = UUID()
+    let name: String
+    
+    let icon: String
+    var items: [DetailLocalCovid]?
+    
+
+    static let seoul = DetailLocalCovid(name: "서울", icon: "1.circle")
+    static let busan = DetailLocalCovid(name: "부산", icon: "1.circle")
+    static let daegu = DetailLocalCovid(name: "대구", icon: "1.circle")
+    static let incheon = DetailLocalCovid(name: "인천", icon: "1.circle")
+    static let gwangju = DetailLocalCovid(name: "광주", icon: "1.circle")
+    static let daejeon = DetailLocalCovid(name: "대전", icon: "1.circle")
+    static let ulsan = DetailLocalCovid(name: "울산", icon: "1.circle")
+    static let sejong = DetailLocalCovid(name: "세종", icon: "1.circle")
+    static let gyeonggi = DetailLocalCovid(name: "경기", icon: "1.circle")
+    static let gangwon = DetailLocalCovid(name: "강원", icon: "1.circle")
+    static let chungbuk = DetailLocalCovid(name: "충북", icon: "1.circle")
+    static let chungnam = DetailLocalCovid(name: "충남", icon: "1.circle")
+    static let jeonbuk = DetailLocalCovid(name: "전북", icon: "1.circle")
+    static let jeonnam = DetailLocalCovid(name: "전남", icon: "1.circle")
+    static let gyeongbuk = DetailLocalCovid(name: "경북", icon: "1.circle")
+    static let gyeongnam = DetailLocalCovid(name: "경남", icon: "1.circle")
+    static let jeju = DetailLocalCovid(name: "제주", icon: "1.circle")
+    
+}

@@ -31,11 +31,6 @@ class DataViewModel: ObservableObject {
         case jeju = "제주"
     }
     
-    struct LocalAreaCell {
-        var opened = Bool()
-        var data: [String: Any]
-    }
-    
     var cancellables = Set<AnyCancellable>()
     let covidUseCase: CovidUseCase
     
@@ -47,9 +42,10 @@ class DataViewModel: ObservableObject {
     @Published var covidData: CovidResponse?
     @Published var totalCovid: TotalCovid? = nil
     @Published var localCovid: LocalCovid? = nil
+    var areaDetail: [LocalArea] = []
+    var detailArea: [DetailLocalCovid] = []
     
-    var localArea: [LocalAreaCell] = []
-    var localCovidCount = 17
+    //var localCovidCount = 17
     
     init(covidUseCase: CovidUseCase) {
         self.covidUseCase = covidUseCase
@@ -93,7 +89,6 @@ class DataViewModel: ObservableObject {
                     self.getChartData()
                 }
             } receiveValue : { response in
-                //print("res \(response)")
                 self.covidData = response
             }.store(in: &cancellables)
     }
@@ -136,7 +131,8 @@ class DataViewModel: ObservableObject {
                 case .failure(let error):
                     print("opps \(error)")
                 case .finished:
-                    self.localAreaCell()
+//                    print("finished")
+                    self.addDetail()
                 }
             } receiveValue : { response in
                 print("res \(response)")
@@ -144,12 +140,21 @@ class DataViewModel: ObservableObject {
             }.store(in: &cancellables)
     }
     
-    func localAreaCell() {
-        for i in LocalAreaType.allCases {
-            if(localCovid.dictionary.keys.contains("\(i)")){
-                let area = localCovid.dictionary.filter { $0.key == "\(i)"}
-                localArea.append(LocalAreaCell(opened: false, data: area))
-            }
+    func addDetail(){
+        guard let localCovid = localCovid else {
+            return
         }
+ 
+        self.areaDetail = [localCovid.seoul, localCovid.busan, localCovid.daegu, localCovid.daejeon, localCovid.incheon, localCovid.ulsan, localCovid.sejong, localCovid.gyeonggi, localCovid.gangwon, localCovid.gwangju, localCovid.chungbuk, localCovid.chungnam, localCovid.jeonbuk, localCovid.jeonnam, localCovid.gyeongbuk, localCovid.gyeongnam, localCovid.jeju]
+        
+        for i in areaDetail {
+            let detailStr = "- 총 사망자 : \(i.death)\n- 총 확진자 : \(i.totalCase)\n- 신규 확진자 : \(i.newCase)"
+            detailArea.append(DetailLocalCovid(name: i.countryName, icon: "sys", items: [DetailLocalCovid(name: detailStr, icon: "aa", items: nil)]))
+        }
+
+       
+        
     }
+    
+
 }

@@ -40,7 +40,6 @@ class DataViewController: UIViewController {
         }
         bindUI()
         addDetailLocalView()
-        //addChartView()
     }
     
     func setUpUI(){
@@ -48,7 +47,7 @@ class DataViewController: UIViewController {
     }
     
     func addDetailLocalView() {
-        let localView = DetailLocalView()
+        let localView = DetailLocalView().environmentObject(self.viewModel)
         let controller = UIHostingController(rootView: localView)
         self.addChild(controller)
         controller.view.translatesAutoresizingMaskIntoConstraints = false
