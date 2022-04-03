@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,7 +56,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="reO-NC-KhU">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Main-navy"/>
+                        <color key="selectedImageTintColor" red="0.039829656040000001" green="0.083748560789999996" blue="0.2249036847" alpha="0.84705882349999995" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="xax-cg-ICJ" kind="relationship" relationship="viewControllers" id="P9Y-Mx-uTA"/>
@@ -69,4 +71,9 @@
             <point key="canvasLocation" x="-268" y="55"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="Main-navy">
+            <color red="0.096000000834465027" green="0.14900000393390656" blue="0.37700000405311584" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

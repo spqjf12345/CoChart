@@ -15,14 +15,18 @@ struct DetailLocalView: View {
         
         List(viewModel.detailArea, id: \.id, children: \.items) { area in
             if area.items != nil {
-                Label(area.name, systemImage: "quote.bubble")
-            }else {
+                Label(title: { Text(area.name) }, icon: {
+                    Image(systemName: area.icon)
+                        .renderingMode(.template)
+                        .foregroundColor(.black)
+                })
+            } else {
                 Text(area.name)
             }
         }.onAppear() {
             UITableView.appearance().backgroundColor = UIColor.systemGray5
             UITableViewCell.appearance().backgroundColor = UIColor.systemGray5
-        }
+        }.accentColor(Color.black)
     }
 }
 

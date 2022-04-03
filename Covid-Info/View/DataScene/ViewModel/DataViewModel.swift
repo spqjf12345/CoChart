@@ -37,16 +37,14 @@ class DataViewModel: ObservableObject {
     var totalCovidPublisher: AnyPublisher<TotalCovid?, Never> { self.$totalCovid.eraseToAnyPublisher() }
     var localRankingPublisher: AnyPublisher<[String: Double], Never> { self.$localTopFiveRank.eraseToAnyPublisher() }
         
-    @Published var chartData: [(String, Int)] = []
+    var chartData: [(String, Int)] = []
     @Published var localTopFiveRank: [String : Double] = [:]
-    @Published var covidData: CovidResponse?
+    var covidData: CovidResponse?
     @Published var totalCovid: TotalCovid? = nil
-    @Published var localCovid: LocalCovid? = nil
+    var localCovid: LocalCovid? = nil
     var areaDetail: [LocalArea] = []
     var detailArea: [DetailLocalCovid] = []
-    
-    //var localCovidCount = 17
-    
+
     init(covidUseCase: CovidUseCase) {
         self.covidUseCase = covidUseCase
         self.getCovid()
@@ -105,6 +103,7 @@ class DataViewModel: ObservableObject {
     
     func getTotalData() {
         covidUseCase.getTotalCovid()
+            .receive(on: DispatchQueue.main)
             .sink  { (completion) in
                 switch completion {
                 case .failure(let error):
@@ -147,9 +146,9 @@ class DataViewModel: ObservableObject {
  
         self.areaDetail = [localCovid.seoul, localCovid.busan, localCovid.daegu, localCovid.daejeon, localCovid.incheon, localCovid.ulsan, localCovid.sejong, localCovid.gyeonggi, localCovid.gangwon, localCovid.gwangju, localCovid.chungbuk, localCovid.chungnam, localCovid.jeonbuk, localCovid.jeonnam, localCovid.gyeongbuk, localCovid.gyeongnam, localCovid.jeju]
         
-        for i in areaDetail {
+        for (idx, i) in areaDetail.enumerated() {
             let detailStr = "- 총 사망자 : \(i.death)\n- 총 확진자 : \(i.totalCase)\n- 신규 확진자 : \(i.newCase)"
-            detailArea.append(DetailLocalCovid(name: i.countryName, icon: "sys", items: [DetailLocalCovid(name: detailStr, icon: "aa", items: nil)]))
+            detailArea.append(DetailLocalCovid(name: i.countryName, icon: "\(idx+1).circle", items: [DetailLocalCovid(name: detailStr, icon: "aa", items: nil)]))
         }
 
        

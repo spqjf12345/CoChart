@@ -31,7 +31,7 @@ struct InfoView: View {
                     CategoryView(shown: $shown, oneCategory: $category, category: info.category)
         
                 }
-            }.padding().navigationBarTitle("CoChart", displayMode: .large)
+            }.padding().navigationBarTitle("CoChart", displayMode: .automatic)
         
         }.popupNavigationView(show: $shown, content: {
             DetailCategoryView(category: $category, shown: $shown)
