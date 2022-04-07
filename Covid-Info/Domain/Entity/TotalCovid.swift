@@ -38,5 +38,7 @@ struct TotalCovid: Codable {
     var source: String
     var updateTime: String
     var resultMessage: String
+    
+    static var EMPTY = TotalCovid(resultCode: "", TotalCase: "", TotalRecovered: "", TotalDeath: "", NowCase: "", city1n: "city1n", city2n: "city2n", city3n: "city3n", city4n: "city4n", city5n: "city5n", city1p: "0", city2p: "0", city3p: "0", city4p: "0", city5p: "0", recoveredPercentage: 0, deathPercentage: 0, checkingCounter: 0, checkingPercentage: 0, caseCount: 0, casePercentage: 0, notcaseCount: 0, notcasePercentage: 0, TotalChecking: 0, TodayRecovered: 0, TodayDeath: 0, TotalCaseBefore: "", source: "", updateTime: "", resultMessage: "")
 }
 

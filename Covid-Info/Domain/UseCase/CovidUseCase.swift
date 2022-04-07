@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 class CovidUseCase: CovidRepositoryProtocol {
-    private let covidRepository: CovidRepository
+    private let covidRepository: CovidRepositoryProtocol
     
-    init(covidRepository: CovidRepository){
+    init(covidRepository: CovidRepositoryProtocol){
         self.covidRepository = covidRepository
     }
     

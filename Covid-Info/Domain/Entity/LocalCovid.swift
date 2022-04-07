@@ -29,6 +29,9 @@ struct LocalCovid: Codable {
     var gyeongnam: LocalArea
     var jeju: LocalArea
     var quarantine: LocalArea
+    
+    static var localArea = LocalArea(countryName: "", death: "", newCase: "", newFcase: "", percentage: "", recovered: "", totalCase: "")
+    static var EMPTY = LocalCovid(resultCode: "", resultMessage: "", korea: localArea, seoul: localArea, busan: localArea, daegu: localArea, incheon: localArea, gwangju: localArea, daejeon: localArea, ulsan: localArea, sejong: localArea, gyeonggi: localArea, gangwon: localArea, chungbuk: localArea, chungnam: localArea, jeonbuk: localArea, jeonnam: localArea, gyeongbuk: localArea, gyeongnam: localArea, jeju: localArea, quarantine: localArea)
 }
 
 struct LocalArea: Codable {

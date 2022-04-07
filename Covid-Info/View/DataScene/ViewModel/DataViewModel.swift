@@ -53,7 +53,6 @@ class DataViewModel: ObservableObject {
         self.getCovid()
         self.getTotalData()
         self.getLocalCovid()
-       //self.localAreaCell()
     }
     
     func date() -> [String] {
@@ -84,10 +83,11 @@ class DataViewModel: ObservableObject {
                 case .failure(let error):
                     print("opps \(error)")
                 case .finished:
-                    self.getChartData()
+                    print("finished")
                 }
             } receiveValue : { response in
                 self.covidData = response
+                self.getChartData()
             }.store(in: &cancellables)
     }
     
@@ -109,10 +109,11 @@ class DataViewModel: ObservableObject {
                 case .failure(let error):
                     print("opps \(error)")
                 case .finished:
-                    self.getFiveRank()
+                    print("finished")
                 }
             } receiveValue : { response in
                 self.totalCovid = response
+                self.getFiveRank()
             }.store(in: &cancellables)
     }
     
@@ -133,7 +134,6 @@ class DataViewModel: ObservableObject {
                     self.addDetail()
                 }
             } receiveValue : { response in
-                print("res \(response)")
                 self.localCovid = response
             }.store(in: &cancellables)
     }

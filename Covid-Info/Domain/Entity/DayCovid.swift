@@ -17,6 +17,8 @@ struct CovidRequest : Codable {
 
 struct CovidResponse: Codable {
     var response: CovidRes
+    
+    static var EMPTY = CovidResponse(response: CovidRes(header: CovidResponseHeader(resultCode: "", resultMsg: ""), body: CovidResponseBody(items: Item(item: []), numOfRows: "", pageNo: "", totalCount: "")))
 }
 
 struct CovidRes: Codable {

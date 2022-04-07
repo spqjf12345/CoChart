@@ -103,17 +103,16 @@ class DataViewController: UIViewController {
         chartDataSet.colors = [.darkGray]
         let chartData = BarChartData(dataSet: chartDataSet)
         todayPsChartView.data = chartData
-        //chartDataSet.highlightEnabled = false
-        todayPsChartView.doubleTapToZoomEnabled = false
-        todayPsChartView.xAxis.labelPosition = .bottom
-        todayPsChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints.map{ $0.0 })
-        todayPsChartView.rightAxis.enabled = false
-        todayPsChartView.setVisibleXRangeMaximum(30)
-        todayPsChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
-        todayPsChartView.drawGridBackgroundEnabled = false
-        todayPsChartView.xAxis.drawGridLinesEnabled = false
-        todayPsChartView.xAxis.setLabelCount(dataPoints.count, force: false)
-        todayPsChartView.dragXEnabled = false
+//        todayPsChartView.doubleTapToZoomEnabled = false
+//        todayPsChartView.xAxis.labelPosition = .bottom
+//        todayPsChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints.map{ $0.0 })
+//        todayPsChartView.rightAxis.enabled = false
+//        todayPsChartView.setVisibleXRangeMaximum(30)
+//        todayPsChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+//        todayPsChartView.drawGridBackgroundEnabled = false
+//        todayPsChartView.xAxis.drawGridLinesEnabled = false
+//        todayPsChartView.xAxis.setLabelCount(dataPoints.count, force: false)
+//        todayPsChartView.dragXEnabled = false
     }
     
     func setCircleChart(dataPoints: [String: Double]){
