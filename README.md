@@ -10,7 +10,8 @@
 ### stack
 - Combine
 - SwiftUI
-- MVVM 
+- MVVM
+- Unit Test
 
 ### Data
 - 일일 확진자 수 : https://www.data.go.kr/data/15043376/openapi.do
