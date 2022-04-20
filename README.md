@@ -7,7 +7,7 @@
 <img src="https://user-images.githubusercontent.com/50979257/161433289-9f00c8a0-4aa9-41e8-9e49-85e2716e342e.gif"  width="350" height="700"/>
 </p>
 
-### stack
+### Stack
 - Combine
 - SwiftUI
 - MVVM
